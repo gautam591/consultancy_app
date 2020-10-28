@@ -13,7 +13,7 @@ class Post(models.Model):
     
 
     class Meta:
-        ordering = ['-popularity']
+        ordering = ['-postTitle']
     def __str__(self):
         return self.postTitle
 
