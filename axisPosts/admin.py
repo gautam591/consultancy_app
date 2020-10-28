@@ -3,9 +3,9 @@ from .models import Post,postComments,postReactions,commentReactions
 # Register your models here.
 
 class PostViewAdmin(admin.ModelAdmin):
-    list_display = ('id', 'postTitle', 'postSlug','postAuthor')
-    list_filter = ("axisStatus","createdOn",'updatedOn','category')
-    search_fields = ['postTitle', 'content','postAuthor']
+    list_display = ('id', 'postTitle','content')
+    list_filter = ()
+    search_fields = ['postTitle', 'content','country']
     #prepopulated_fields = {'postSlug': ('postAuthor','postTitle')}
 
 class CommentViewAdmin(admin.ModelAdmin):
