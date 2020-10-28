@@ -12,15 +12,15 @@
       </div>
       <div class="sidebarElement" id='myPostsButton' onclick="location.href='{% url 'axisPosts:userPosts' %}';">
         <i class="fas fa-rss-square"></i>
-        My Posts
+        student information
       </div>
       <div class="sidebarElement" id='viewCoinButton'>
         <i class="fas fa-copyright"></i>
-        My Axis Coins
+        shedule meeting
       </div>
       <div class="sidebarElement" id='axisPremiumButton'>
         <i class="fas fa-shield-alt"></i>
-        Axis Premium
+      class information
       </div>
       <p class='sidebarTitle'> More </p>
       <div class="sidebarElement" id='helpCenter'>
@@ -28,31 +28,27 @@
         Help Center
       </div>
     {%else%}
-      <p class='sidebarTitle'>
-        Anynomous User ( Anon ) Profile  
-      </p>   
-      <div class="sidebarElement" id='whatAxisButton'>
-        <i style="font-family:'StrokeyBacon';font-size:25px;padding:0;padding-right:4px;">A</i>
-        What is Project Axis ?
-      </div>
-      <div class="sidebarElement" id='thingsYouCanDoButton'>
-        <i class="fas fa-hands-helping"></i>
-        Things You Can Do
-      </div>
-      <div class="sidebarElement" id='uploadAnonPostButton'>
-        <i class="fas fa-upload"></i>
-        Upload Post as Anon
-      </div>
-      <p class='sidebarTitle'> More </p>
-      <div class="sidebarElement" id='helpCenter'>
-        <i class="fas fa-question-circle"></i>
-        Help Center
-      </div>
+    
+    <div class="sidebarElement">
+      <div> <a style="font-size:15px;" href="{% url 'axisUsers:login' %}"> Login Here </a></div>
+    </div>
+    <div class="sidebarElement" id='uploadAnonPostButton'>
+       <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> saved posts </a>
+    </div>
+    
+    <div class="sidebarElement">
+      <div> <a style="font-size:15px;" href="{% url 'axisUsers:login' %}"> book classes </a></div>
+    </div>
+    <div class="sidebarElement" id='uploadAnonPostButton'>
+       <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> seminar </a>
+    </div>
+    
+      
       <div class="sidebarElement">
-        <h6> Axis User ?<a style="font-size:15px;" href="{% url 'axisUsers:login' %}"> Login Here </a></h6>
+        <div> <a style="font-size:15px;" href="{% url 'axisUsers:login' %}"> option2 </a></div>
       </div>
       <div class="sidebarElement" id='uploadAnonPostButton'>
-        <h6>Not Registered ? <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> Register Here </a></h6>
+         <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> option1 </a>
       </div>
       
     {% endif %}

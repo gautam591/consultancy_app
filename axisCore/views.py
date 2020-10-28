@@ -10,3 +10,14 @@ def base(request):
     context = {'base':'base'}
     #return HttpResponse(template.render(context,request))
     return render(request, 'axisCore/base.html', context)
+def base1(request):
+    #template = loader.get_template('axisCore/base.html')
+    context = {'base1':'base1'}
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisCore/base1.html', context)
+
+def base2(request):
+    #template = loader.get_template('axisCore/base.html')
+    context = {'base2':'base2'}
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisCore/base2.html', context)

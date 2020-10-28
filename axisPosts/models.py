@@ -7,21 +7,10 @@ from autoslug import AutoSlugField
 # Create your models here.
 class Post(models.Model):
     postTitle = models.CharField(max_length=200,unique=False)
-    postSlug = AutoSlugField(populate_from="postTitle",unique=True)
-    postAuthor = models.ForeignKey(User,on_delete= models.SET_DEFAULT,default="1")
-    statusChoices = [('0', 'Draft/Not Published'),('1', 'Published')]
-    status = models.IntegerField(default=0) #Draft or Published
     content = models.TextField()
     postImage = models.ImageField(upload_to="images/",null=True, blank=True)
-    category = models.IntegerField(default=0) #Post Category:Regular/Complaint/Concern/Movement/Awareness
-    axisStatus = models.IntegerField(default=0) # Issue Status : Planning/OnGoing/Ended/Cancelled/Suspended
-    postLevel = models.IntegerField(default=0) #Post Type/Level : Gov/Community/Private/Charity/Org
-    budget = models.IntegerField(null=True,blank=True,default=0)
-    startDate = models.DateField(blank=True,null=True)
-    endDate = models.DateField(blank=True,null=True)
-    popularity = models.BigIntegerField(default=0)
-    updatedOn = models.DateTimeField(auto_now=True)
-    createdOn = models.DateTimeField(auto_now_add=True)
+    country= models.IntegerField(default=0) #Post Category:Regular/Complaint/Concern/Movement/Awareness
+    
 
     class Meta:
         ordering = ['-popularity']

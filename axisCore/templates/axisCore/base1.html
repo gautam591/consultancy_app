@@ -24,10 +24,6 @@
     <script type="text/javascript" src="{% static 'axisPosts/js/postDetail.js'%}"></script>
     <script type="text/javascript" src="{% static 'axisUsers/js/profile.js'%}"></script>
     <script src="https://chatwee-api.com/v2/script/5f5c99adc768a455e56bf452.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <header>
@@ -44,6 +40,8 @@
               {% csrf_token %}
               <div class="form-group has-success has-feedback">
                 <label class="control-label" for="inputSuccess4"></label>
+                <input type="text" class="form-control searchQueryField" id="inputSuccess4" placeholder="Search" required>
+                <span class="fas fa-search form-control-feedback searchQueryButton" style="cursor: pointer;"></span>
               </div>
             </form>
           </ul>
@@ -70,7 +68,30 @@
            </h3>
         </center><br>
       </div>
-    
+    <div class="axisMenu" id="axisMenu">
+      <div class="axisMenuButtons">
+          <a class="axisMenuElements activeMenuElement" title="Home" href="{% url 'axisPosts:postView' %}">
+            <i class="fas fa-home" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Home</i> 
+          </a>
+          <a class="axisMenuElements" title="PMS" href="{% url 'axisPMS:pmsPostView' %}">
+            <i class="fas fa-tools" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">PMS</i> 
+          </a>
+          <a class="axisMenuElements " title="Cool Ninja" href="#">
+            <i class="fas fa-user-ninja" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Ninja</i> 
+          </a>
+          <a class="axisMenuElements" title="Axis Network" href="#">
+            <i class="fas fa-globe" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Axis Network</i> 
+          </a>
+          <a class="axisMenuElements" title="Terms" href="{% url 'axisUsers:termsAndConditions' %}">
+            <i class="fas fa-file-contract" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Terms</i> 
+          </a>
+      </div>
+    </div>
     {%if noSettingSidebar%}
       <div class="redirectBar" title="Go Back To Where You Came From">
         GO Back
@@ -78,9 +99,11 @@
     {% endif %}
     
     <center style="color:white;">
-     
-        <P>choose your options</P>
-    
+      {%if app_name%}
+        {{app_name}}
+      {%else%}
+        NONE
+      {%endif%}
     </center>
     <div class="overlapContentPage" id="overlapContentPage" style="display:none;">
       <button type="button"name="uploadPostFormCloseButton"class="uploadPostFormCloseButton"id="uploadPostFormCloseButton"> Close </button>
@@ -88,22 +111,13 @@
     <div class='homeContent'>
       <div class="profileSidebar">
         <div class="sticky">
-          {% include "axisCore/profileSidebar1.html" %}
+          {% include "axisCore/profileSidebar.html" %}
         </div>
       </div>
 
       <main class="mainContent">
-        
-          <a href="{% url 'axisCore:base1' %}" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-user"></span> for student
-          </a>
-          <br>
-          <br>
-          <br>
-          <a href="{% url 'axisCore:base2' %}" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-user"></span> for admins
-          </a>
-        </main>
+        {% block content %} {% endblock content %}
+      </main>
 
       {%if noSettingSidebar%}
       {% else %}
@@ -118,21 +132,19 @@
      </div>
 
    <footer>
-     
-     <a href="#">
-       <i class="fa fa-twitter" ></i>
-     </a>
-     <a href="#">
-      <i class="fa fa-facebook" aria-hidden="true" ></i>
+    <a href="#">
+      <i class="fa fa-twitter" ></i>
     </a>
     <a href="#">
-      <i class="fa fa-instagram" ></i>
-    </a>
-    <a href="#">
-      <i class="fa fa-google" ></i>
-    </a>
-    
-   </footer>
+     <i class="fa fa-facebook" aria-hidden="true" ></i>
+   </a>
+   <a href="#">
+     <i class="fa fa-instagram" ></i>
+   </a>
+   <a href="#">
+     <i class="fa fa-google" ></i>
+   </a>
+   
    {% block javascript %} {% endblock %}
    <script>
      $(document).ready(function(){

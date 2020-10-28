@@ -6,20 +6,15 @@
     <div class='postDetailCard' id='postDetailCard-{{post.id}}'>
         <div class="postFeedTitle">
             {{ post.postTitle }}
-            <small>| Id : {{ post.id }}</small>
-            {% if post.category is 0 %}
-            {% elif post.category is 1 %}
-                <span class="postTag project">Project</span>
-            {% elif post.category is 2 %}
-                <span class="postTag complaint">Complaint</span>
-            {% elif post.category is 3 %}
-                <span class="postTag concern">Concern</span>
-            {% elif post.category is 4 %}
-                <span class="postTag movement">Movement</span>
-            {% elif post.category is 5 %}
-                <span class="postTag awareness">Awareness</span>
-            {% endif %}
-        </div> <hr style="margin:5px;margin-top:3px;">
+            <small>| Id : {{ post.id }}
+              
+            </small>
+          </div> <hr style="margin:5px;margin-top:3px;">
+          <div class="postImageDiv">
+          {% if post.postImage %}
+              <img src="{{post.postImage.url}}" alt="Post Image" id="postImage-{{post.id}}" height="100%" width="100%" style="max-height:20em;object-fit:cover;">
+          {% endif %}
+          </div>
         <div class="postFeedText">&raquo; {{ post.content }} &laquo;</div>
         <div class="postFeedPopu">
             &#9889;
@@ -27,19 +22,21 @@
             <span id="popuMsg-{{ post.id }}"></span>
         </div>
         <form method="post" class="postFeedReact">
-          {% if user.is_authenticated %}
-            <button type="button" class="postFeedReactButton postFeedReactUp" id="postFeedReactUp-{{ post.id }}" >&#9650;Up</button>
-            <button type="button" class="postFeedReactButton postFeedReactDown" id="postFeedReactDown-{{ post.id }}" >&#9660;Meh!</button>
+         
+          <button type="button" class="	fa fa-thumbs-o-up" id="postFeedReactUp-{{ post.id }}" >
+            <i class="fa fa-thumbs-o-up" style="font-size:15px;"></i>&#9650; like</button>
+          <button type="button" class="	fa fa-thumbs-o-down" id="postFeedReactDown-{{ post.id }}" >
+            <i class="	fa fa-thumbs-o-down" style="font-size:15px;"></i>&#9660; dislike</button>
+          <a href="{% url 'axisPosts:apply' %}" class="btn btn-info btn-lg">
+              <span class="glyphicon glyphicon-ok"></span> apply
+            </a>
             <button type="button" class="postFeedReactButton detailedPostComment" id="postFeedComment-{{ post.id }}" >
               <i class="fas fa-comment-alt" style="font-size:15px;"></i> Comment
             </button>
             <button type="button" class="postFeedReactButton detailedPostShare" id="postFeedShare-{{post.id}}" >
               <i class="fas fa-share-alt-square" style="font-size:17px;"></i> Share
             </button>
-          {%else%}
-            <button type="button" class="postFeedReactButton postFeedNoReact" >&#9650;Up</button>
-            <button type="button" class="postFeedReactButton postFeedNoReact" >&#9660;Meh!</button>
-          {% endif %}
+         
          </form>
         {% if reactions.postId.id is post.id %}
             {% if reactions.reaction is 1 %}
