@@ -21,48 +21,18 @@
             <span id="popuCounter-{{ post.id }}"> {{ post.popularity }}</span>
             <span id="popuMsg-{{ post.id }}"></span>
         </div>
-        <form method="post" class="postFeedReact">
-         
-          <button type="button" class="	fa fa-thumbs-o-up" id="postFeedReactUp-{{ post.id }}" >
-            <i class="fa fa-thumbs-o-up" style="font-size:15px;"></i>&#9650; like</button>
-          <button type="button" class="	fa fa-thumbs-o-down" id="postFeedReactDown-{{ post.id }}" >
-            <i class="	fa fa-thumbs-o-down" style="font-size:15px;"></i>&#9660; dislike</button>
-          <a href="{% url 'axisPosts:apply' %}" class="btn btn-info btn-lg">
-              <span class="glyphicon glyphicon-ok"></span> apply
-            </a>
-            <button type="button" class="postFeedReactButton detailedPostComment" id="postFeedComment-{{ post.id }}" >
-              <i class="fas fa-comment-alt" style="font-size:15px;"></i> Comment
-            </button>
-            <button type="button" class="postFeedReactButton detailedPostShare" id="postFeedShare-{{post.id}}" >
-              <i class="fas fa-share-alt-square" style="font-size:17px;"></i> Share
-            </button>
-         
-         </form>
-        {% if reactions.postId.id is post.id %}
-            {% if reactions.reaction is 1 %}
-                <script>
-                    $('#postFeedReactUp-'+{{post.id}}).css("color", "blue");
-                    $("#popuMsg-"+{{post.id}}).html("+You Upped this !!");
-                </script>
-            {% elif reactions.reaction is 2 %}
-                <script>
-                    $('#postFeedReactDown-'+{{post.id}}).css("color", "#e8807d");
-                    $("#popuMsg-"+{{post.id}}).html("-You thought this was Meh !!");
-                </script>
-            {% endif %}
-        {% endif %}
-        <div class="postUpd"><small> Updated At : {{ post.updatedOn }}</small></div>
-    </div>
-
-    <div class="newCommentPostBox" id="newCommentPostBox">
-      <small>Commenting as : {{user.username}}</small>
-      <span class="closeCommentPostButton" onclick="this.parentElement.style.display='none';"> &times; </span>
-      <form method="post" class="newCommentPostForm" id ="newCommentPostForm-{{post.id}}">
-        <textarea name="newCommentPost" class= "newCommentPost" id ="newCommentPost-{{post.id}}" placeholder=" What are your thoughts ?" required></textarea>
-        <button type="button" class="postNewComment pncP0" id="postNewComment-{{post.id}}" >
-          <i class="fas fa-comment-alt" style="font-size:15px;"></i> Publish
-        </button>
-      </form>
+         <form method="post" class="postFeedReact">
+                <button type="button" class="postFeedReactButton postFeedReactUp" id="postFeedReactUp-{{ post.id }}" > <i class="fa fa-thumbs-o-up" style="font-size:15px;"></i>&#9650; like</button></button>
+                <button type="button" class="postFeedReactButton postFeedReactDown" id="postFeedReactDown-{{ post.id }}" > <i class="fa fa-thumbs-o-down" style="font-size:15px;"></i>&#9650; dislike</button></button>
+                <button type="button" class="postFeedReactButton postFeedReactDown" id="" href="{% url 'axisCore:apply' %}" > <i class="fa fa-cc-visa" ></i>&#9650; apply</button></button>
+                <button type="button" class="postFeedReactButton detailedPostComment" id="postFeedComment-{{ post.id }}" >
+                  <i class="fas fa-comment-alt" style="font-size:15px;"></i> Comment
+                </button>
+                <button type="button" class="postFeedReactButton detailedPostShare" id="postFeedShare-{{post.id}}" >
+                  <i class="fas fa-share-alt-square" style="font-size:17px;"></i> Share
+                </button>
+                <button type="button" name="viewPost" class="postFeedViewButton" id="postFeedViewButton-{{ post.id }}">View Post</button>
+                </form>
       <div class="alertUserCmtDiv" style="display:none;">
         <span class="closeBtnAlert" onclick="this.parentElement.style.display='none';"> &times;</span>
         <div class="alertUserOnCmt"></div>

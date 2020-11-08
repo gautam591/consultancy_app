@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'Axis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'testDB',
+        'NAME': 'axisGautam',
         'USER': 'postgres',
-        'PASSWORD': 'leonardo',
+        'PASSWORD': 'gautam',
         'HOST': 'localhost',
         'PORT': '',
     }

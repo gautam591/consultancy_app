@@ -9,6 +9,7 @@ from .forms import uploadPostForm
 from .models import Post,postReactions,postComments,commentReactions
 from axisUsers.models import User
 
+
 def postView(request):
     model = Post.objects.all()
     postPG = Paginator(model, 10)

@@ -13,6 +13,7 @@ urlpatterns = [
     path('reactions/', views.reactions, name='reactions'),
     path('postNewComment/', views.postNewComment, name='postNewComment'),
     path('posts/', views.userPosts, name='userPosts'),
+    
 ]
 
 if settings.DEBUG:

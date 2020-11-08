@@ -32,15 +32,16 @@
                 <span id="popuMsg-{{ post.id }}"></span>
             </div>
             <form method="post" class="postFeedReact">
-                {% if user.is_authenticated %}
-                    <button type="button" class="postFeedReactButton postFeedReactUp" id="postFeedReactUp-{{ post.id }}" >&#9650;Up</button>
-                    <button type="button" class="postFeedReactButton postFeedReactDown" id="postFeedReactDown-{{ post.id }}" >&#9660;Meh!</button>
-                {%else%}
-                    <button type="button" class="postFeedReactButton postFeedNoReact" >&#9650;Up</button>
-                    <button type="button" class="postFeedReactButton postFeedNoReact" >&#9660;Meh!</button>
-                {% endif %}
-                <button type="button" name="viewPost" class="postFeedViewButton" id="postFeedViewButton-{{ post.id }}">View Post</button>
-            </form>
+                <button type="button" class="postFeedReactButton postFeedReactUp" id="postFeedReactUp-{{ post.id }}" > <i class="fa fa-thumbs-o-up" style="font-size:15px;"></i>&#9650; like</button></button>
+                <button type="button" class="postFeedReactButton postFeedReactDown" id="postFeedReactDown-{{ post.id }}" > <i class="fa fa-thumbs-o-down" style="font-size:15px;"></i>&#9650; dislike</button></button>
+                <button type="button" class="postFeedReactButton postFeedReactDown" id="" href="{% url 'axisCore:apply' %}" > <i class="fa fa-cc-visa" ></i>&#9650; apply</button></button>
+                <button type="button" class="postFeedReactButton detailedPostComment" id="postFeedComment-{{ post.id }}" >
+                  <i class="fas fa-comment-alt" style="font-size:15px;"></i> Comment
+                </button>
+                <button type="button" class="postFeedReactButton detailedPostShare" id="postFeedShare-{{post.id}}" >
+                  <i class="fas fa-share-alt-square" style="font-size:17px;"></i> Share
+                </button>
+                <button type="button" name="viewPost" class="postFeedViewButton" id="postFeedViewButton-{{ post.id }}">View Post</button>      </form>
             {% for reactions in reaction_list %}
                 {% if reactions.postId.id is post.id %}
                     {% if reactions.reaction is 1 %}
