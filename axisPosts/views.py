@@ -9,6 +9,17 @@ from .forms import uploadPostForm
 from .models import Post,postReactions,postComments,commentReactions
 from axisUsers.models import User
 
+def searchPost(request):
+    if request.method == "GET":
+        searchQuery=request.GET.get('searchQuery','gautam')
+        print(searchQuery,"miss you search")
+        data = Post.objects.filter(postTitle__icontains=searchQuery)
+        return render(request,"axisPosts/search.html", {'data': data})
+
+
+
+
+
 
 def postView(request):
     model = Post.objects.all()

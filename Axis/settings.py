@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['project-axis.herokuapp.com/']
 # Application definition
 
 INSTALLED_APPS = [
-    'axisPMS.apps.axisPMSConfig',
+    
     'axisCore.apps.axisCoreConfig',
     'axisUsers.apps.axisUsersConfig',
     'axisPosts.apps.axisPostsConfig',

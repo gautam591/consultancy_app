@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
 from axisPosts.models import Post
-from axisPMS.models import pmsPost
+
 
 class uploadPostForm(forms.ModelForm):
     postTitle = forms.CharField(label='postTitle',required=True,
