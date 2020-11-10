@@ -10,6 +10,7 @@ media/
 #**/migrations/*
 # Database
 db.sqlite3
+capstone-design-firebasecredential.json
 # Editor directories and files
 .idea
 # Byte-compiled / optimized / DLL files
