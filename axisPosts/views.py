@@ -17,9 +17,17 @@ def searchPost(request):
         return render(request,"axisPosts/search.html", {'data': data})
 
 
+def booking(request):
+    #template = loader.get_template('axisCore/base.html')
+    context = {'booking':'booking'}
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisPosts/booking.html', context)
 
-
-
+def apply(request):
+    #template = loader.get_template('axisCore/base.html')
+    context = {'apply':'apply'}
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisPosts/apply.html', context)
 
 def postView(request):
     model = Post.objects.all()

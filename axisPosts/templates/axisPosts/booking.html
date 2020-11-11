@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>submit your detail here</title>
+<style>
+   
+h2{
+ font-family: Sans-serif; 
+     
+ font-style: normal; 
+ font-weight: bold; 
+ color: blue;
+ text-align: center; 
+ text-decoration: underline
+}
+table{
+ font-family: verdana; 
+ color:black; 
+ 
+ font-style: normal;
+ font-weight: bold;
+ background: linear-gradient(to bottom,gray 100%, gray 100%);  
+ border-collapse: collapse; 
+ border: 4px solid #000000;
+ border-style: dashed;
+  
+}
+table.inner{
+ border: 10px
+}
+input[type=text], input[type=email], input[type=number]{
+ width: 50%;
+ padding: 6px 12px;
+ margin: 5px 0;
+ box-sizing: border-box;
+}
+input[type=submit], input[type=reset]{
+ width: 15%;
+ padding: 8px 12px;
+ margin: 5px 0;
+ box-sizing: border-box;
+}
+</style>
+</head>
+<body  style=" background-color: #18191a;">
+<h2>submit your details here</h3>
+<table align="center" cellpadding = "10">
+<!--------------------- First Name ------------------------------------------>
+<tr>
+<td>First Name</td>
+<td><input type="text" name="FirstName" maxlength="50" placeholder="gautam" />
+(Max 50 Characters Allowed)
+</td>
+</tr>
+<!------------------------ Last Name --------------------------------------->
+<tr>
+<td>Last Name</td>
+<td><input type="text" name="LastName" maxlength="50" placeholder="bohara"/>
+(Max 50 Characters Allowed)
+</td>
+</tr>
+<!-------------------------- Email ID ------------------------------------->
+<tr>
+<td>Email ID</td>
+<td><input type="email" name="EmailID" maxlength="100" placeholder="abcd@gmail.com"/></td>
+</tr>
+<!-------------------------- Mobile Number ------------------------------------->
+<tr>
+<td>Mobile Number</td>
+<td>
+<input type="text" name="MobileNumber" maxlength="10" placeholder="7842xxxxxx"/>
+(10 Digits Allowed)
+</td>
+</tr>
+<!---------------------- Gender ------------------------------------->
+<tr>
+<td>Gender</td>
+<td>
+<input type="radio" name="Gender" value="Male" />
+Male
+<input type="radio" name="Gender" value="Female" />
+Female
+<input type="radio" name="Gender" value="others" />
+others
+</td>
+</tr>
+<!--------------------------Date Of Birth----------------------------------->
+<tr>
+<td>Estimated starting date</td>
+<td>
+    <input type="date" id="birthday" name="birthday">
+</td>
+</tr>
+<tr>
+    <td>choose<br />class</td>
+    <td>
+        
+    
+        <select id="classes" style="font-size: 30px; font-style: bold; ">
+          <option value="ielts">ielts</option>
+          <option value="toefl">toefl</option>
+          <option value="sat">sat</option>
+          <option value="gre" >gre</option>
+        </select>
+    </td>
+    </tr>
+<!-----------------------Qualification---------------------------------------->
+<tr>
+<td>Shift <br /><br /><br /></td>
+<td>
+<br/>
+<select id="shifts" style="font-size: 30px; font-style: bold; ">
+    <option value="ielts">morning</option>
+    <option value="toefl">afternoon</option>
+    <option value="sat">evening</option>
+    
+  </select>
+</td>
+</tr>
+<tr>
+    <td>Payment option <br /><br /><br /></td>
+    <td>
+    <br/>
+    <select id="shifts" style="font-size: 30px; font-style: bold; ">
+        <option value="ielts">skrill</option>
+        <option value="toefl">paypal</option>
+        <option value="sat">e-Sewa</option>
+        
+      </select>
+      <br>
+      <label>if you are using paypal or skrill our email is abcd@gmail.com</label>
+    </td>
+    </tr>
+    <tr>
+        <td>payment receipt</td>
+        <td>
+            <label for="img">Select image</label>
+            <input type="file" id="img" name="img" accept="image/*">
+            <br>
+            <label>after payment is done please atttach you receipt </label>
+        </td>
+        </tr>
+<!---------------------------- Courses ----------------------------------->
+
+<!----------------------- Submit and Reset ------------------------------->
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

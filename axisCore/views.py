@@ -16,11 +16,7 @@ def base(request):
     #return HttpResponse(template.render(context,request))
     return render(request, 'axisCore/base.html', context)
 
-def apply(request):
-    #template = loader.get_template('axisCore/base.html')
-    context = {'apply':'apply'}
-    #return HttpResponse(template.render(context,request))
-    return render(request, 'axisCore/apply.html', context)
+
 
 def base1(request):
     model = Post.objects.all()

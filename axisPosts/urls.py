@@ -13,7 +13,9 @@ urlpatterns = [
     path('reactions/', views.reactions, name='reactions'),
     path('postNewComment/', views.postNewComment, name='postNewComment'),
     path('posts/', views.userPosts, name='userPosts'),
-     path('search/',views.searchPost,name='search'),
+    path('search/',views.searchPost,name='search'),
+    path('booking/',views.booking,name='booking'),
+    path('apply/', views.apply, name='apply'),
     
 ]
 
