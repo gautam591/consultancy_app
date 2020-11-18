@@ -7,7 +7,6 @@ env/
 # Project asset folders
 media/
 #Ignore Migrations during dev phase
-#**/migrations/*
 # Database
 db.sqlite3
 capstone-design-firebasecredential.json
