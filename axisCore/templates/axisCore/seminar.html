@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>submit your detail here</title>
+<style>
+   
+h2{
+ font-family: Sans-serif; 
+     
+ font-style: normal; 
+ font-weight: bold; 
+ color: blue;
+ text-align: center; 
+ text-decoration: underline
+}
+table{
+ font-family: verdana; 
+ color:black; 
+ 
+ font-style: normal;
+ font-weight: bold;
+ background: linear-gradient(to bottom,gray 100%, gray 100%);  
+ border-collapse: collapse; 
+ border: 4px solid #000000;
+ border-style: dashed;
+  
+}
+table.inner{
+ border: 10px
+}
+input[type=text], input[type=email], input[type=number]{
+ width: 50%;
+ padding: 6px 12px;
+ margin: 5px 0;
+ box-sizing: border-box;
+}
+input[type=submit], input[type=reset]{
+ width: 15%;
+ padding: 8px 12px;
+ margin: 5px 0;
+ box-sizing: border-box;
+}
+</style>
+</head>
+<body  style=" background-color: #18191a;">
+<h2>submit your details here</h3>
+<table align="center" cellpadding = "10">
+<!--------------------- First Name ------------------------------------------>
+<form>
+<tr>
+    <td>enter university name</td>
+    <td><input type="text" placeholder="university name"></td>
+</tr>
+<tr>
+    <td>mention date </td>
+    <td><input type="datetime-local" placeholder="enter the date"></td>
+    </tr>
+<tr>
+    <td>Add details</td>
+    <td><textarea placeholder="input shortdiscreptions"></textarea></td>
+    </tr>
+    <tr>
+    <td>meeting link</td>
+    <td><input type="url" placeholder="meeting link"></td>
+    </tr>
+
+<!----------------------- Submit and Reset ------------------------------->
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+
+

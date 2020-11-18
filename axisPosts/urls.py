@@ -17,6 +17,7 @@ urlpatterns = [
     path('booking/',views.booking,name='booking'),
     path('apply/', views.apply, name='apply'),
     
+    
 ]
 
 if settings.DEBUG:
