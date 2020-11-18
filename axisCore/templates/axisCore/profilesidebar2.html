@@ -1,4 +1,4 @@
-{% block profileSidebar %}
+{% block profileSidebar2 %}
   <div class='sidebarDiv'>
     {% if user.is_authenticated %}
       <p class='sidebarTitle'> User Profile </p>
@@ -12,15 +12,15 @@
       </div>
       <div class="sidebarElement" id='myPostsButton' onclick="location.href='{% url 'axisPosts:userPosts' %}';">
         <i class="fas fa-rss-square"></i>
-        student information
+        Student information
       </div>
       <div class="sidebarElement" id='viewCoinButton'  onclick="location.href='{% url 'axisCore:seminar' %}';">
         <i class="fas fa-copyright"></i>
-        shedule meeting
+        Shedule seminar
       </div>
       <div class="sidebarElement" id='axisPremiumButton'>
         <i class="fas fa-shield-alt"></i>
-      class information
+      Class information
       </div>
       <p class='sidebarTitle'> More </p>
       <div class="sidebarElement" id='helpCenter'>
@@ -30,25 +30,25 @@
     {%else%}
     
     <div class="sidebarElement">
-      <div> <a style="font-size:15px;" href="{% url 'axisUsers:login' %}"> Book Classes </a></div>
+      <div> <a style="font-size:15px; color:white" href="{% url 'axisUsers:login' %}">  </a></div>
     </div>
     <div class="sidebarElement" id='uploadAnonPostButton'>
-       <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> Seminar's </a>
+       <a style="font-size:15px;color:white" href="{% url 'axisUsers:register' %}"> Rules</a>
     </div>
     
     <div class="sidebarElement">
-      <div> <a style="font-size:15px;" href="{% url 'axisPosts:booking' %}"> Sport Events </a></div>
+      <div> <a style="font-size:15px;color:white" href="{% url 'axisPosts:booking' %}"> Register guide </a></div>
     </div>
     <div class="sidebarElement" id='uploadAnonPostButton'>
-       <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> Location</a>
+       <a style="font-size:15px;color:white" href="{% url 'axisUsers:register' %}"> Post guide </a>
     </div>
     
       
       <div class="sidebarElement">
-        <div> <a style="font-size:15px;" href="{% url 'axisUsers:login' %}"> Awards </a></div>
+        <div> <a style="font-size:15px;color:white" href="{% url 'axisUsers:login' %}"> Consultency policy </a></div>
       </div>
       <div class="sidebarElement" id='uploadAnonPostButton'>
-         <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> Achievements</a>
+         <a style="font-size:15px;color:white" href="{% url 'axisUsers:register' %}"> holidays </a>
       </div>
       
     {% endif %}
@@ -62,10 +62,10 @@
       <a href="{% url 'axisCore:base' %}" class="sidebarElement"> Base</a>
     </div>
     <div class="sidebarElement">
-      <a href="{% url 'axisUsers:login' %}" class="sidebarElement">About </a>
+      <a href="{% url 'axisUsers:login' %}" class="sidebarElement"> Login Page</a>
     </div>
     <div class="sidebarElement">
-      <a href="{% url 'axisUsers:register' %}" class="sidebarElement"> Review page</a>
+      <a href="{% url 'axisUsers:register' %}" class="sidebarElement"> Registration Page</a>
     </div>
   </div>
-{% endblock profileSidebar%}
+{% endblock profileSidebar2%}
