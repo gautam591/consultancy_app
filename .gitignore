@@ -5,7 +5,6 @@ env/
 *.sqlite3
 .idea/
 # Project asset folders
-
 #Ignore Migrations during dev phase
 # Database
 db.sqlite3

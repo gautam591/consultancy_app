@@ -36,7 +36,9 @@ ALLOWED_HOSTS = ['https://dry-dawn-68812.herokuapp.com/']
 
 INSTALLED_APPS = [
     
+    'webpush',
     'axisCore.apps.axisCoreConfig',
+    'webPush.apps.WebpushConfig',
     'axisUsers.apps.axisUsersConfig',
     'axisPosts.apps.axisPostsConfig',
     'django.contrib.admin',
@@ -46,6 +48,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY":  "BNjGymc77Tz9-sxBQSub_LTTVADEJ8NiRMevxBDldNbyUJqQgA1UYDEHf1UNwvrf0V54wAdAjrByiIu250n0nvs",
+    "VAPID_PRIVATE_KEY": "LmzC5je4zcJak6Ow2bycL890kmoK9FP2i0g2LMiTsc0",
+    "VAPID_ADMIN_EMAIL": "gautambohara591@gmail.com",
+}
+
+
 AUTH_USER_MODEL = 'axisUsers.User'
 LOGIN_URL = 'axisUsers:login'
 MIDDLEWARE = [
@@ -135,3 +145,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'axis/static/')
 django_heroku.settings(locals())
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
