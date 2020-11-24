@@ -9,13 +9,52 @@ class Post(models.Model):
     postTitle = models.CharField(max_length=200,unique=False)
     content = models.TextField()
     postImage = models.ImageField(upload_to="images/",null=True, blank=True)
-    country= models.IntegerField(default=0) #Post Category:Regular/Complaint/Concern/Movement/Awareness
+    country= models.CharField(max_length=50) #Post Category:Regular/Complaint/Concern/Movement/Awareness
     
 
     class Meta:
         ordering = ['-postTitle']
     def __str__(self):
         return self.postTitle
+
+class apply(models.Model):
+    firstname:models.CharField()
+    lastName :models.CharField()
+    email  :models.CharField()
+    mobile :models.IntegerField()
+    gender :models.CharField()
+    dob :models.DateField()
+    address :models.TextField()
+    hobby :models.CharField()
+    qualifications :models.CharField()
+    subject :models.CharField()
+    applypopularity = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['-applypopularity']
+    def __str__(self):
+        return self.applypopularity
+
+class booking(models.Model):
+    firstname:models.CharField()
+    lastName :models.CharField()
+    email  :models.CharField()
+    mobile :models.IntegerField()
+    gender :models.CharField()
+    startdate :models.DateField()
+    selectclass :models.CharField()
+    bookingpopularity = models.IntegerField(default=0)
+    shift :models.CharField()
+    recipt:models.ImageField(upload_to="images/",null=False, blank=False)
+
+    class Meta:
+        ordering = ['-bookingpopularity']
+    def __str__(self):
+        return self.bookingpopularity
+
+
+
+
 
 class postComments(models.Model):
     postId =  models.ForeignKey(Post,on_delete= models.CASCADE)

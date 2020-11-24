@@ -5,13 +5,13 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
 #from django.template import loader
-from .forms import uploadPostForm
+from .forms import uploadPostForm,applyForm
 from .models import Post,postReactions,postComments,commentReactions
 from axisUsers.models import User
 
 def searchPost(request):
     if request.method == "GET":
-        searchQuery=request.GET.get('searchQuery','gautam')
+        searchQuery=request.GET.get('q','gautam')
         print(searchQuery,"miss you search")
         data = Post.objects.filter(postTitle__icontains=searchQuery)
         return render(request,"axisPosts/search.html", {'data': data})
@@ -73,8 +73,21 @@ def uploadPostonDB(response):
     else:
         form = uploadPostForm()
     return render(response, 'axisPosts/uploadPost.html',{'uploadPostForm':form})
-    
 
+def applyFormonDB(response):
+    if response.method == "POST":
+        form = applyForm(response.POST,response.FILES)
+        if form.is_valid():
+            form.cleaned_data['postAuthor'] = response.user
+            newPost = form.save(commit=False)
+            newPost.save()
+            return JsonResponse({'Form':"SAVED"})
+        else:
+            return JsonResponse({'Error':True,'Errors':form.errors})
+    else:
+        form = applyForm()
+    return render(response, 'axisPosts/apply.html',{'applyForm':form})
+    
 def postDetailView(request):
     if request.method == 'GET':
         postId = request.GET.get('postId',None)

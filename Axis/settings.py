@@ -150,3 +150,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+DJANGO_ERROR_ASSIST_FROM = 'stackoverflow'
+
+

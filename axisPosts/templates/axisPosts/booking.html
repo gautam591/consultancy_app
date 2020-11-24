@@ -43,64 +43,56 @@ input[type=submit], input[type=reset]{
 </head>
 <body  style=" background-color: #18191a;">
 <h2>submit your details here</h3>
+  <form>
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
 <tr>
 <td>First Name</td>
-<td><input type="text" name="FirstName" maxlength="50" placeholder="gautam" />
-(Max 50 Characters Allowed)
+<td>{{bookingForm.firstName}}
+  <span class="error">* {{bookingForm.firstName.errors}}</span>
 </td>
 </tr>
 <!------------------------ Last Name --------------------------------------->
 <tr>
 <td>Last Name</td>
-<td><input type="text" name="LastName" maxlength="50" placeholder="bohara"/>
-(Max 50 Characters Allowed)
+<td>{{bookingForm.lastName}}
+  <span class="error">* {{bokkingForm.lastName.errors}}</span>
 </td>
 </tr>
 <!-------------------------- Email ID ------------------------------------->
 <tr>
 <td>Email ID</td>
-<td><input type="email" name="EmailID" maxlength="100" placeholder="abcd@gmail.com"/></td>
+<td>{{bookingForm.email}}
+  <span class="error">* {{bookingForm.email.errors}}</span></td>
 </tr>
 <!-------------------------- Mobile Number ------------------------------------->
 <tr>
 <td>Mobile Number</td>
 <td>
-<input type="text" name="MobileNumber" maxlength="10" placeholder="7842xxxxxx"/>
-(10 Digits Allowed)
+  {{bookingForm.mobile}}
+  <span class="error">* {{bookingForm.mobile.errors}}</span>
 </td>
 </tr>
 <!---------------------- Gender ------------------------------------->
 <tr>
 <td>Gender</td>
 <td>
-<input type="radio" name="Gender" value="Male" />
-Male
-<input type="radio" name="Gender" value="Female" />
-Female
-<input type="radio" name="Gender" value="others" />
-others
+  {{bookingForm.gender}}
+  <span class="error">* {{bookingForm.gender.errors}}</span>
 </td>
 </tr>
 <!--------------------------Date Of Birth----------------------------------->
 <tr>
 <td>Estimated starting date</td>
 <td>
-    <input type="date" id="birthday" name="birthday">
+  {{bookingForm.startdate}}
+  <span class="error">* {{bookingForm.startdate.errors}}</span>
 </td>
 </tr>
 <tr>
     <td>choose<br />class</td>
-    <td>
-        
-    
-        <select id="classes" style="font-size: 30px; font-style: bold; ">
-          <option value="ielts">ielts</option>
-          <option value="toefl">toefl</option>
-          <option value="sat">sat</option>
-          <option value="gre" >gre</option>
-        </select>
+    {{bookingForm.selectclass}}
+  <span class="error">* {{bookingForm.selectclass.errors}}</span>
     </td>
     </tr>
 <!-----------------------Qualification---------------------------------------->
@@ -108,12 +100,8 @@ others
 <td>Shift <br /><br /><br /></td>
 <td>
 <br/>
-<select id="shifts" style="font-size: 30px; font-style: bold; ">
-    <option value="ielts">morning</option>
-    <option value="toefl">afternoon</option>
-    <option value="sat">evening</option>
-    
-  </select>
+{{bookingForm.shift}}
+  <span class="error">* {{bookingForm.shift.errors}}</span>
 </td>
 </tr>
 <tr>
@@ -133,10 +121,8 @@ others
     <tr>
         <td>payment receipt</td>
         <td>
-            <label for="img">Select image</label>
-            <input type="file" id="img" name="img" accept="image/*">
-            <br>
-            <label>after payment is done please atttach you receipt </label>
+          {{bookingForm.recipt}}
+          <span class="error">* {{bookingForm.recipt.errors}}</span>
         </td>
         </tr>
 <!---------------------------- Courses ----------------------------------->

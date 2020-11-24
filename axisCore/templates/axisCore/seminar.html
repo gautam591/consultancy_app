@@ -43,24 +43,29 @@ input[type=submit], input[type=reset]{
 </head>
 <body  style=" background-color: #18191a;">
 <h2>submit your details here</h3>
+    <form>
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
 <form>
 <tr>
-    <td>enter university name</td>
-    <td><input type="text" placeholder="university name"></td>
+    <td>Enter university name</td>
+    <td>{{seminarForm.university}}
+        <span class="error">* {{seminarForm.university.errors}}</span></td>
 </tr>
 <tr>
     <td>mention date </td>
-    <td><input type="datetime-local" placeholder="enter the date"></td>
+    <td>{{seminarForm.date}}
+        <span class="error">* {{seminarForm.date.errors}}</span></td>
     </tr>
 <tr>
     <td>Add details</td>
-    <td><textarea placeholder="input shortdiscreptions"></textarea></td>
+    <td>{{seminarForm.description}}
+        <span class="error">* {{seminarForm.description.errors}}</span></td>
     </tr>
     <tr>
-    <td>meeting link</td>
-    <td><input type="url" placeholder="meeting link"></td>
+    <td>Meeting link</td>
+    <td>{{seminarForm.link}}
+        <span class="error">* {{seminarForm.link.errors}}</span></td>
     </tr>
 
 <!----------------------- Submit and Reset ------------------------------->

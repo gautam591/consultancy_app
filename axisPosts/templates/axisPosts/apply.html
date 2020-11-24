@@ -43,99 +43,70 @@ input[type=submit], input[type=reset]{
 </head>
 <body  style=" background-color: #18191a;">
 <h2>submit your details here</h3>
+ <form method="POST" enctype="multipart/form-data" class="applyform" id="applyform"> 
+    {%csrf_token%}
+    <h6 style="padding-top:2em;"><span class="error">*Required Fields</span></h6>
+    {{ uploadPostForm.non_field_errors }}
+    {{ uploadPostForm.source.errors }}
+    {{ uploadPostForm.source }}
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
 <tr>
 <td>First Name</td>
-<td><input type="text" name="FirstName" maxlength="50" placeholder="gautam" />
-(Max 50 Characters Allowed)
+<td>{{applyForm.firstName}}
+    <span class="error">* {{applyForm.firstName.errors}}</span>
 </td>
 </tr>
 <!------------------------ Last Name --------------------------------------->
 <tr>
 <td>Last Name</td>
-<td><input type="text" name="LastName" maxlength="50" placeholder="bohara"/>
-(Max 50 Characters Allowed)
+<td>{{applyForm.lastName}}
+    <span class="error">* {{applyForm.lastName.errors}}</span>
 </td>
 </tr>
 <!-------------------------- Email ID ------------------------------------->
 <tr>
 <td>Email ID</td>
-<td><input type="email" name="EmailID" maxlength="100" placeholder="abcd@gmail.com"/></td>
+<td>{{applyForm.email}}
+    <span class="error">* {{applyForm.email.errors}}</span></td>
 </tr>
 <!-------------------------- Mobile Number ------------------------------------->
 <tr>
 <td>Mobile Number</td>
 <td>
-<input type="text" name="MobileNumber" maxlength="10" placeholder="7842xxxxxx"/>
-(10 Digits Allowed)
+    {{applyForm.mobile}}
+    <span class="error">* {{applyForm.mobile.errors}}</span>
 </td>
 </tr>
 <!---------------------- Gender ------------------------------------->
 <tr>
 <td>Gender</td>
 <td>
-<input type="radio" name="Gender" value="Male" />
-Male
-<input type="radio" name="Gender" value="Female" />
-Female
+    {{applyForm.gender}}
+    <span class="error">* {{applyForm.gender.errors}}</span>
 </td>
 </tr>
 <!--------------------------Date Of Birth----------------------------------->
 <tr>
 <td>Date of Birth(DOB)</td>
 <td>
-    <input type="date" id="birthday" name="birthday">
+    {{applyForm.dob}}
+    <span class="error">* {{applyForm.dob.errors}}</span>
 </td>
 </tr>
 <!------------------------- Address ---------------------------------->
 <tr>
 <td>Address<br /><br /><br /></td>
-<td><textarea name="Address" rows="10" cols="50"></textarea></td>
+<td>{{applyForm.address}}
+    <span class="error">* {{applyForm.address.errors}}</span></td>
 </tr>
-<!-------------------------- City ------------------------------------->
-<tr>
-<td>City</td>
-<td><input type="text" name="City" maxlength="50" placeholder="kathmandu"/>
-(Max 50 Characters Allowed)
-</td>
-</tr>
-<!----- -------------------- Pin Code-------------------------------------->
-<tr>
-<td>Pin Code</td>
-<td><input type="Number" name="PinCode" maxlength="6" placeholder="560068"/>
-(Max 6 Numbers Allowed)
-</td>
-</tr>
-<!---------------------------- State ----------------------------------->
-<tr>
-<td>State</td>
-<td><input type="text" name="State" maxlength="50" placeholder="Kathmandu"/>
-(Max 50 Characters Allowed)
-</td>
-</tr>
-<!------------------------------ Country --------------------------------->
-<tr>
-<td>Country</td>
-<td><input type="text" name="Country" placeholder="Nepal" /></td>
-</tr>
+
 <!------------------------- Hobbies -------------------------------------->
 <tr>
 <td>Hobbies <br /><br /><br /></td>
 <td>
-<input type="checkbox" name="HobbyDrawing" value="Drawing" />
-Drawing
-<input type="checkbox" name="HobbySinging" value="Singing" />
-Singing
-<input type="checkbox" name="HobbyDancing" value="Dancing" />
-Dancing
-<input type="checkbox" name="HobbyCooking" value="Cooking" />
-Sketching
-<br />
-<input type="checkbox" name="HobbyOther" value="Other">
-Others
-<input type="text" name="Other_Hobby" maxlength="50" placeholder="Ex- Teaching" />
-(Max 50 Characters Allowed)
+    {{applyForm.hobby}}
+    <span class="error">* {{applyForm.hobby.errors}}</span>
 </td>
 </tr>
 <!-----------------------Qualification---------------------------------------->
@@ -143,48 +114,62 @@ Others
 <td>Qualification <br /><br /><br /></td>
 <td>
 <br/>
-<input type="checkbox" name="HighSchool" value="High School" />
-High School(10th)<br>
-<input type="checkbox" name="HigherSchool" value="Higher School" />
-Higher School(12th)<br/>
-<input type="checkbox" name="Graduation" value="Graduation" />
-Graduation(Bachelors)<br/>
-<input type="checkbox" name="PostGraduation" value="Post Graduation" />
-Post Graduation(Masters)<br/>
-<input type="checkbox" name="Phd" value="Phd">
-Phd
+{{applyForm.qualifications}}
+    <span class="error">* {{applyForm.qualifactions.errors}}</span>
+
 </td>
 </tr>
 <!---------------------------- Courses ----------------------------------->
 <tr>
 <td>Courses<br />Applied For</td>
 <td>
-<input type="radio" name="CourseBCA" value="BCA">
-BCA(Bachelor of Computer Applications)<br>
-<input type="radio" name="CourseBCom" value="B.Com">
-B.Com(Bachelor of Commerce)<br>
-<input type="radio" name="CourseBSc" value="B.Sc">
-B.Sc(Bachelor of Science)<br>
-<input type="radio" name="CourseBA" value="B.A">
-BA(Bachelor of Arts)<br>
-<input type="radio" name="CourseMCA" value="BCA">
-MCA(Master of Computer Applications)<br>
-<input type="radio" name="CourseMCom" value="B.Com">
-M.Com(Master of Commerce)<br>
-<input type="radio" name="CourseMSc" value="B.Sc">
-M.Sc(Master of Science)<br>
-<input type="radio" name="CourseMA" value="B.A">
-MA(Master of Arts)<br>
+    {{applyForm.subject}}
+    <span class="error">* {{applyForm.subject.errors}}</span>
 </td>
 </tr>
 <!----------------------- Submit and Reset ------------------------------->
 <tr>
 <td colspan="2" align="center">
-<input type="submit" value="Submit">
-<input type="reset" value="Reset">
+    <input class="newPostSubmitButton" type="submit" name="submitPost" value="submit">
+
 </td>
 </tr>
 </table>
 </form>
 </body>
 </html>
+<script>
+    $(document).ready(function(){
+      $('#applyform').submit(function(e){
+        e.preventDefault();
+        $form = $(this)
+        var formData = new FormData(this);
+        $.ajax({
+          type: 'POST',
+          url: "{% url 'axisPosts:applyFormonDB' %}",
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+              if (response.Form=='SAVED'){
+                    alert("Your Post Was Sucessfully Uploaded !!");
+              }
+              else if(response.Error_message){
+                  $.each(response.errors, function(name, error){
+                      error = '<small class="text-muted error">' + error + '</small>'
+                      $form.find('[name=' + name + ']').after(error);
+                  })
+              }
+              else{
+                  alert("Error : "+response.error);
+              }
+          },
+          error: function(data) {
+                  alert("Something Went Wrong. Try Again !!")
+                }
+        });
+      });
+  
+    });
+  </script>
