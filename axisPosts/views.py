@@ -11,8 +11,7 @@ from axisUsers.models import User
 
 def searchPost(request):
     if request.method == "GET":
-        searchQuery=request.GET.get('q','gautam')
-        print(searchQuery,"miss you search")
+        searchQuery=request.GET.get('searchQuery')
         data = Post.objects.filter(postTitle__icontains=searchQuery)
         return render(request,"axisPosts/search.html", {'data': data})
 

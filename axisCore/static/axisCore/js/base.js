@@ -18,6 +18,7 @@ $(document).ready(function(){
        try{
            document.getElementById('uploadPostForm').remove();
            document.getElementById('infoDiv').remove();
+           document.getElementById('search_feed').remove();
         }
        catch(err){};
        try{$('.postDetailView').remove();}

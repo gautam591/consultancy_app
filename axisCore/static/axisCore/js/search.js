@@ -6,18 +6,14 @@ $(document).ready(function(){
         document.getElementById('axisMenu').style.display='none';
         document.body.style.overflow = "hidden";
         document.getElementById("axisNavbar").style.top = "0";
-        var fd =  $('#inputSuccess4').val();
-        //console.log("clicked")
+        let search_query =  $('#search_query_input').val();
+        //console.log("clicked : ",fd)
           $.ajax({
               type:'GET',
               url:getBaseURLs('searchURL'),
-              data: {searchQuery:fd},
-              processData: false,
-              contentType: false,
+              data: {'searchQuery':search_query},
               success:function(response){
-                    $(".overlapContentPage").append(response);
-
-                
+                    $(".overlapContentPage").append(response);                
                },
               error: function(response) {
                 alert("Something Went Wrong. Try Again !!")
