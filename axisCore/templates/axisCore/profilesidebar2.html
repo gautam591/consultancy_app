@@ -22,11 +22,12 @@
         <i class="fas fa-shield-alt"></i>
       Class information
       </div>
-      <p class='sidebarTitle'> More </p>
-      <div class="sidebarElement" id='helpCenter'>
-        <i class="fas fa-question-circle"></i>
-        Help Center
+      <div class="sidebarElement" id=''  onclick="location.href='{% url 'webPush:home' %}';">
+        <i class="fas fa-copyright"></i>
+        send notification
       </div>
+     
+      
     {%else%}
     
     <div class="sidebarElement">
