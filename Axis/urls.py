@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('webPush/', include('webPush.urls')),
     path('webpush/', include('webpush.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     ]
 #

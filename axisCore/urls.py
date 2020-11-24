@@ -7,6 +7,7 @@ from django.views.generic import RedirectView
 app_name = "axisCore"
 urlpatterns = [
     path('', views.base, name='base'),
+    path('passadmin/', views.passadmin, name='passadmin'),
     path('base1/', views.base1, name='base1'),
     path('base2/', views.base2, name='base2'),
     path('seminar/', views.seminar, name='seminar'),

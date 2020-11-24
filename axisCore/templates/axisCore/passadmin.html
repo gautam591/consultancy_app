@@ -1,0 +1,33 @@
+<html>
+<head>
+  {% load static %}
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/login.css' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'axisCore/favicon.ico' %}">
+  {% block stylesheet %}{% endblock %}
+</head>
+<html>
+<main>
+  <div class="circle circle-lime"></div>
+  <form action="" method="get">
+      <h1>Admin Pass</h1>
+      <div>
+        <label for="username"></label>
+        <input type="text" name="username" id="username" placeholder="Username (required)" autofocus required>
+      </div>
+       <div>
+        <label for=""></label>
+        <input type="password" name="password" id="password" placeholder="Password (required)" required>
+        <p class="forgot-text"><h5 class="gauatam">Forgot your password?</h5></p>
+      </div>
+      <div class="keep-logged-in">
+        <input type="checkbox" value="Go!"></input>
+        <label>Keep me logged in.</label>
+      </div>
+      <a href="{% url 'axisCore:base2' %}"  class="pass" >pass</a>
+    </form>
+  <div class="circle circle-aqua"></div>
+  </main>
+</body>
+</html>
+    

@@ -16,6 +16,12 @@ def base(request):
     #return HttpResponse(template.render(context,request))
     return render(request, 'axisCore/base.html', context)
 
+def passadmin(request):
+    #template = loader.get_template('axisCore/base.html')
+    context = {'passadmin':'passadmin'}
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisCore/passadmin.html', context)
+
 def seminar(request):
     #template = loader.get_template('axisCore/base.html')
     context = {'seminar':'seminar'}

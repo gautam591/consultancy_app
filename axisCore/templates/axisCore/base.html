@@ -63,7 +63,7 @@
                   <a style="font-size:15px;" href="{% url 'axisUsers:logout' %}"> Log Out </a>
                 {%else%}
                   <i class="fas fa-user-secret"></i>
-                  <h5>student</h5>
+                  <h5>Guest</h5>
                   
                 {% endif %}
               </span>
@@ -100,7 +100,7 @@
           <br>
           <br>
           <br>
-          <a href="{% url 'axisCore:base2' %}" class="btn btn-info btn-lg">
+          <a href="{% url 'axisCore:passadmin' %}" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-user"></span> for admins
           </a>
         </main>
