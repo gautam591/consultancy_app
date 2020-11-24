@@ -1,5 +1,5 @@
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +8,26 @@
     {% if user.id %}
         <meta name="user_id" content="{{ user.id }}">
     {% endif %}
-    <title>Web Push</title>]
+    <title>Web Push</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'webPush/css/styles.css' %}">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
     {% block stylesheet %}{% endblock %}
-    <script type="text/javascript" src="{% static 'webPush/js/registerSw.js'%}"></script>
-    <script type="text/javascript" src="{% static 'webPush/js/site.js'%}"></script>
-    <script type="text/javascript" src="{% static 'webPush/js/sw.js'%}"></script>
 </head>
-
 <body>
-<div>
-    <form id="send-push__form">
-        <h3 class="header">Send a push notification</h3>
-        <p class="error"></p>
-        <input type="text" name="head" placeholder="univeersity name">
-        <textarea name="body" id="" cols="30" rows="10" placeholder="about post"></textarea>
-        <button>Send Me</button>
-    </form>
-</div>
+    <div>
+        <form id="send_push_form">
+            {% csrf_token %}
+            <h3 class="header">Send a Push Notification</h3>
+            <p class="error"></p>
+            <input type="text" name="push_head" placeholder="Web Push Heading">
+            <textarea name="push_body" cols="30" rows="10" placeholder="Push Content"></textarea>
+            <button type="submit">Send Me !!</button>
+        </form>
+    </div>
 </body>
+<script type="text/javascript" src="{% static 'webPush/js/registerSw.js' %}"></script>
+<script type="text/javascript" src="{% static 'webPush/js/site.js' %}"></script>
+<script type="text/javascript" src="{% static 'webPush/js/sw.js' %}"></script>
+</html>

@@ -11,7 +11,7 @@ app_name = "webPush"
 urlpatterns = [
     path('', views.home, name='home'),
     path('send_push', views.send_push, name='send_push'),
-    
+    path('sw.js/', TemplateView.as_view(template_name='sw.js', content_type='application/x-javascript'))    
 
    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

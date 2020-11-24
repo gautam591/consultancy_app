@@ -1,4 +1,4 @@
-const pushForm = document.getElementById('send-push__form');
+const pushForm = document.getElementById('send_push_form');
 const errorMsg = document.querySelector('.error');
 
 pushForm.addEventListener('submit', async function (e) {
@@ -17,11 +17,12 @@ pushForm.addEventListener('submit', async function (e) {
         button.innerText = 'Sending...';
         button.disabled = true;
 
-        const res = await fetch('/send_push', {
+        const res = await fetch('send_push', {
             method: 'POST',
             body: JSON.stringify({head, body, id}),
+            data:{},
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             }
         });
         if (res.status === 200) {
@@ -44,5 +45,13 @@ pushForm.addEventListener('submit', async function (e) {
             error = "Are you sure you're logged in? 🤔. Make sure! 👍🏼"
         }
         errorMsg.innerText = error;
+    }
+});
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
     }
 });

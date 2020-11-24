@@ -24,7 +24,7 @@ def home(request):
    webpush_settings = getattr(settings, 'WEBPUSH_SETTINGS', {})
    vapid_key = webpush_settings.get('VAPID_PUBLIC_KEY')
    user = request.user
-   context={}
+   #context={}
    return render(request, 'webPush/home.html', {user: user, 'vapid_key': vapid_key})
 
 def send_push(request):
@@ -32,12 +32,12 @@ def send_push(request):
         body = request.body
         data = json.loads(body)
 
-        if 'head' not in data or 'body' not in data or 'id' not in data:
+        if 'push_head' not in data or 'push_body' not in data or 'id' not in data:
             return JsonResponse(status=400, data={"message": "Invalid data format"})
 
         user_id = data['id']
         user = get_object_or_404(User, pk=user_id)
-        payload = {'head': data['head'], 'body': data['body']}
+        payload = {'head': data['push_head'], 'body': data['push_body']}
         send_user_notification(user=user, payload=payload, ttl=1000)
 
         return JsonResponse(status=200, data={"message": "Web push successful"})
