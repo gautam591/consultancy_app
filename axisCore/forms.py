@@ -3,6 +3,8 @@ from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
 from axisCore.models import seminar
 from axisUsers.models import User
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
 
 class seminarForm(forms.ModelForm):

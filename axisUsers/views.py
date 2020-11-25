@@ -9,6 +9,26 @@ from django.core import serializers
 from .forms import RegisterUser,LoginUser,userProfile
 from .models import User,userAwards
 
+def gautam(request):
+    #template = loader.get_template('axisUsers/login.html')
+    if request.method == "POST":
+            userName = request.POST.get('username')
+            userPass = request.POST.get('password')
+            user = authenticate(username=userName, password=userPass)
+            if user is not None :
+                login(request, user)
+                return redirect("axisCore:baseadmin")
+            else :
+                #return redirect("../../")
+                messages.error(request,"Invalid Username Or Password")
+        
+def passadmin(request):
+    #template = loader.get_template('axisCore/base.html')
+    context = {'passadmin':'passadmin'}
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisUsers/passadmin.html', context)
+
+
 def login_request(request):
     #template = loader.get_template('axisUsers/login.html')
     if request.method == "POST":
@@ -21,7 +41,7 @@ def login_request(request):
                 login(request, user)
                 print("logged In")
                 messages.info(request,f"You are Logged In as : {userName}")
-                return redirect("axisPosts:postView")
+                return redirect("axisCore:base2")
             else :
                 #return redirect("../../")
                 messages.error(request,"Invalid Username Or Password")
@@ -34,7 +54,12 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     #messages.info(request, "Logged out successfully!")
-    return redirect("axisPosts:postView")
+    return redirect("axisCore:base")
+
+def goback(request):
+    logout(request)
+    #messages.info(request, "Logged out successfully!")
+    return redirect("axisCore:baseadmin")
 
 def register(response):
     #template = loader.get_template('axisUsers/register.html')

@@ -1,0 +1,46 @@
+{% block profilesidebaradmin %}
+  <div class='sidebarDiv'>
+   
+    <div class='sidebarHelp'>
+        <div class="sidebarElement">
+            <p>Create Your Own Employee Account</p>
+            <p>Also You Can login if you Already have</p>
+          </div>
+        <div class="sidebarElement">
+            <a style="font-size:15px;" href="{% url 'axisUsers:login' %}"> Login Here </a>
+        </div>
+        <div class="sidebarElement">
+            <a style="font-size:15px;" href="{% url 'axisUsers:register' %}"> Register Here </a>
+        </div>
+        
+        
+    
+         
+        
+  </div>
+
+ 
+    <div class="sidebarElement">
+        <div> <a style="font-size:15px; color:white" href="{% url 'axisUsers:login' %}">  </a></div>
+      </div>
+      <div class="sidebarElement" id='uploadAnonPostButton'>
+         <a style="font-size:15px;color:white" href="{% url 'axisUsers:register' %}"> Rules</a>
+      </div>
+      
+      <div class="sidebarElement">
+        <div> <a style="font-size:15px;color:white" href="{% url 'axisPosts:booking' %}"> Register guide </a></div>
+      </div>
+      <div class="sidebarElement" id='uploadAnonPostButton'>
+         <a style="font-size:15px;color:white" href="{% url 'axisUsers:register' %}"> Post guide </a>
+      </div>
+      
+        
+        <div class="sidebarElement">
+          <div> <a style="font-size:15px;color:white" href="{% url 'axisUsers:login' %}"> Consultency policy </a></div>
+        </div>
+        <div class="sidebarElement" id='uploadAnonPostButton'>
+           <a style="font-size:15px;color:white" href="{% url 'axisUsers:register' %}"> holidays </a>
+        </div>
+        
+  </div>
+{% endblock profilesidebaradmin%}
