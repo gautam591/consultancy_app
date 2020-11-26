@@ -2,6 +2,7 @@ from django.db import models
 #from django.utils.text import slugify
 from axisUsers.models import User
 from autoslug import AutoSlugField
+import datetime
 #import re
 
 # Create your models here.

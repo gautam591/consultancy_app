@@ -12,21 +12,23 @@ from .models import User,userAwards
 def gautam(request):
     #template = loader.get_template('axisUsers/login.html')
     if request.method == "POST":
-            userName = request.POST.get('username')
-            userPass = request.POST.get('password')
-            user = authenticate(username=userName, password=userPass)
-            if user is not None :
-                login(request, user)
+            userName = str(request.POST.get('username'))
+            userPass = int(request.POST.get('password'))
+            print(userName)
+            print(userPass)
+            if userName=="gautam" and userPass==1234567 :
                 return redirect("axisCore:baseadmin")
             else :
                 #return redirect("../../")
-                messages.error(request,"Invalid Username Or Password")
+                return redirect("axisUsers:passadmin")
         
 def passadmin(request):
     #template = loader.get_template('axisCore/base.html')
     context = {'passadmin':'passadmin'}
     #return HttpResponse(template.render(context,request))
     return render(request, 'axisUsers/passadmin.html', context)
+
+
 
 
 def login_request(request):
@@ -59,7 +61,7 @@ def logout_request(request):
 def goback(request):
     logout(request)
     #messages.info(request, "Logged out successfully!")
-    return redirect("axisCore:baseadmin")
+    return redirect("axisCore:base")
 
 def register(response):
     #template = loader.get_template('axisUsers/register.html')

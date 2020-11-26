@@ -58,7 +58,7 @@
                {% if user.is_authenticated %}
                   <i class='fas fa-user-tie' style='font-size:23px;'></i>
                   {{ user.username }}
-                  <a style="font-size:15px;" href="{% url 'axisUsers:goback' %}"> Go Back </a>
+                  <a style="font-size:15px;" href="{% url 'axisUsers:logout' %}"> Logout </a>
                 {%else%}
                   <i class="fas fa-user-secret"></i>
                   <h5>Admin</h5>
