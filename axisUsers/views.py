@@ -13,10 +13,10 @@ def gautam(request):
     #template = loader.get_template('axisUsers/login.html')
     if request.method == "POST":
             userName = str(request.POST.get('username'))
-            userPass = int(request.POST.get('password'))
+            userPass = str(request.POST.get('password'))
             print(userName)
             print(userPass)
-            if userName=="gautam" and userPass==1234567 :
+            if userName=="gautam" and userPass=="1234567":
                 return redirect("axisCore:baseadmin")
             else :
                 #return redirect("../../")
