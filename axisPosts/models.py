@@ -11,7 +11,7 @@ class Post(models.Model):
     content = models.TextField()
     postImage = models.ImageField(upload_to="images/",null=True, blank=True)
     country= models.CharField(max_length=50) #Post Category:Regular/Complaint/Concern/Movement/Awareness
-    
+    updatedOn = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-postTitle']

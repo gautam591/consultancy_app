@@ -12,8 +12,8 @@ class uploadPostForm(forms.ModelForm):
                                 help_text='Description of the Post',
                                 widget=forms.Textarea(attrs={'placeholder': 'Write Your Post Here ...','class':'newPostContent'}))
     categoryChoices = [('0', 'choose'),('1', 'south korea'),('2', 'japan'),('3', 'canada'),('4', 'austrelia'),('5', 'usa')]
-    country = forms.ChoiceField (label='category',required=False,
-                                widget=forms.Select(attrs={'title': 'Post Category','class':'optionSelection'}),choices=categoryChoices)
+    country = forms.ChoiceField (label='country',required=False,
+                                widget=forms.Select(attrs={'title': 'country','class':'optionSelection'}),choices=categoryChoices)
    
     postImage = forms.ImageField(label="postImagae", required=False,help_text="Upload Images for Post")
 
