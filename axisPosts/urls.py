@@ -16,6 +16,8 @@ urlpatterns = [
     path('search/',views.searchPost,name='search'),
     path('booking/',views.booking,name='booking'),
     path('apply/', views.apply, name='apply'),
+    path('viewadmin/', views.viewadmin, name='viewadmin'),
+
     
     
 ]

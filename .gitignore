@@ -7,6 +7,8 @@ env/
 # Project asset folders
 #Ignore Migrations during dev phase
 # Database
+media/
+
 db.sqlite3
 capstone-design-firebasecredential.json
 # Editor directories and files

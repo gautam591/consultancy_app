@@ -56,15 +56,11 @@
            <h1> Welcome capstone design project</h1>
            <h3>
              <span style="font-size:28px;">
-               {% if user.is_authenticated %}
-                  <i class='fas fa-user-tie' style='font-size:23px;'></i>
-                  {{ user.username }}
-                  <a style="font-size:15px;" href="{% url 'axisUsers:logout' %}"> Log Out </a>
-                {%else%}
+               
                   <i class="fas fa-user-secret"></i>
                   <h5>student</h5>
                   
-                {% endif %}
+        
               </span>
            </h3>
         </center><br>
