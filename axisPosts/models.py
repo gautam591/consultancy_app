@@ -12,22 +12,22 @@ class Post(models.Model):
     postImage = models.ImageField(upload_to="images/",null=True, blank=True)
     country= models.CharField(max_length=50) #Post Category:Regular/Complaint/Concern/Movement/Awareness
     updatedOn = models.DateTimeField(auto_now=True)
-
+    
     class Meta:
         ordering = ['-postTitle']
     def __str__(self):
         return self.postTitle
 
 class apply(models.Model):
-    firstname:models.CharField()
-    lastName :models.CharField()
-    email  :models.CharField()
+    firstname:models.CharField(max_length=10)
+    lastName :models.CharField(max_length=10)
+    email  :models.CharField(max_length=10)
     mobile :models.IntegerField()
-    gender :models.CharField()
+    gender :models.CharField(max_length=10)
     dob :models.DateField()
-    address :models.TextField()
-    hobby :models.CharField()
-    qualifications :models.CharField()
+    address :models.TextField(max_length=50)
+    hobby :models.CharField(max_length=10)
+    qualifications :models.CharField(max_length=10)
     subject :models.CharField()
     applypopularity = models.IntegerField(default=0)
 

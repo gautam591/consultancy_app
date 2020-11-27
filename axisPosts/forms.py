@@ -16,7 +16,7 @@ class uploadPostForm(forms.ModelForm):
                                 help_text='Title of this university',
                                 widget=forms.TextInput(attrs={'placeholder': 'country','class':'country'}))   
     postImage = forms.ImageField(label="postImagae", required=False,help_text="Upload Images for Post")
-
+    
 
     class Meta:
         model = Post

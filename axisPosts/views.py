@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
 #from django.template import loader
-from .forms import uploadPostForm,applyForm
+from .forms import uploadPostForm,applyForm,bookingForm
 from .models import Post,postReactions,postComments,commentReactions
 from axisUsers.models import User
 
