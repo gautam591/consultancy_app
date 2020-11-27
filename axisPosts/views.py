@@ -18,9 +18,8 @@ def searchPost(request):
 
 def booking(request):
     #template = loader.get_template('axisCore/base.html')
-    context = {'booking':'booking'}
     #return HttpResponse(template.render(context,request))
-    return render(request, 'axisPosts/booking.html', context)
+    return render(request, 'axisPosts/booking.html', {'bookingForm':bookingForm()})
 
 def apply(request):
     #template = loader.get_template('axisCore/base.html')

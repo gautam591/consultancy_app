@@ -15,7 +15,10 @@
                 <div class="postFeedTitle">
                   {{ post.postTitle }}
                   <small>| Id : {{ post.id }}</small>
+                  
                 </div> <hr style="margin:5px;margin-top:3px;">
+                <div class="postfeedcountry" style="color: red;"> {{post.country}}</div>
+                <img src="{{post.postImage.url}}" alt="Post Image" id="postImage-{{post.id}}" height="100%" width="100%" style="max-height:20em;object-fit:cover;">
                 <div class="postFeedText">&raquo; {{ post.content }} &laquo;</div>
                 <div class="postFeedPopu">
                   &#9889;
@@ -23,20 +26,21 @@
                   <span id="popuMsg-{{ post.id }}"></span>
                 </div>
                 <form method="post" class="postFeedReact">
-                  <button type="button" class="postFeedReactUp" id="postFeedReactUp-{{ post.id }}" value=0 >&#9650;Up</button>
-                  <button type="button" class="postFeedReactDown" id="postFeedReactDown-{{ post.id }}" value=0 >&#9660;Meh!</button>
+                  <a type="button" class="postFeedReactButton postFeedReactDown" id="" href="{% url 'axisPosts:apply' %}" > <i class="fa fa-cc-visa" ></i>&#9650; apply</a>
+                  <button type="button" class="postFeedReactButton detailedPostComment" id="postFeedComment-{{ post.id }}" >
+                    <i class="fas fa-comment-alt" style="font-size:15px;"></i> Comment
+                  </button>
+                  <button type="button" class="postFeedReactButton detailedPostShare" id="postFeedShare-{{post.id}}" >
+                    <i class="fas fa-share-alt-square" style="font-size:17px;"></i> Share
+                  </button>
                   <button type="button" name="viewPost" class="postFeedViewButton" id="postFeedViewButton-{{ post.id }}">View Post</button>
-                </form>
                 <div class="post-upd"><small> Updated At : {{ post.updatedOn }}</small></div>
             </div>
             {% endfor %}
-            <div class="loadMore" id="loadMore-{{post.id}}">
-              <span class="loadMoreButton"  id="loadMoreButton-{{post.id}}" title="Click to Show More Post Feeds">Load More Posts ?</span>
-              <span class="loadingButton" id="loadingButton-{{post.id}}" style="display:none;">Loading ... </span>
-            </div>
+           
     {% else %}
     <div class="loadMore" id="loadCompleteDiv">
-      <span class="loadMoreButton"  id="loadMoreButton-{{post.id}}"  style="display:none;">Load More Posts ?</span>
+
       <span class="loadComplete"  id="loadComplete-{{post.id}}" title="You Finished All Post Feed Reads :) ">No result found :) !!</span>
     </div>
     {% endif %}

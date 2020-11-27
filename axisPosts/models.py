@@ -19,16 +19,16 @@ class Post(models.Model):
         return self.postTitle
 
 class apply(models.Model):
-    firstname:models.CharField(max_length=10)
-    lastName :models.CharField(max_length=10)
-    email  :models.CharField(max_length=10)
-    mobile :models.IntegerField()
-    gender :models.CharField(max_length=10)
-    dob :models.DateField()
-    address :models.TextField(max_length=50)
-    hobby :models.CharField(max_length=10)
-    qualifications :models.CharField(max_length=10)
-    subject :models.CharField()
+    firstname = models.CharField(max_length=10,default=0)
+    lastName = models.CharField(max_length=10 ,default=0)
+    email  = models.CharField(max_length=10,default=0)
+    mobile = models.IntegerField(default=0)
+    gender = models.CharField(max_length=10,default=0)
+    dob = models.DateField(default=0)
+    address = models.CharField(max_length=50,null=False,default=0)
+    hobby = models.CharField(max_length=10,default=0)
+    qualifications = models.CharField(max_length=10,default=0)
+    subject = models.CharField(max_length=10,default=0)
     applypopularity = models.IntegerField(default=0)
 
     class Meta:
@@ -37,16 +37,16 @@ class apply(models.Model):
         return self.applypopularity
 
 class booking(models.Model):
-    firstname:models.CharField()
-    lastName :models.CharField()
-    email  :models.CharField()
-    mobile :models.IntegerField()
-    gender :models.CharField()
-    startdate :models.DateField()
-    selectclass :models.CharField()
+    firstname=  models.CharField(max_length=10,default=0)
+    lastName =  models.CharField(max_length=10,default=0)
+    email  = models.CharField(max_length=10,default=0,null=False)
+    mobile = models.IntegerField(default=0)
+    gender =  models.CharField(max_length=10,default=0)
+    startdate = models.DateField(default=0)
+    selectclass =  models.CharField(max_length=10,default=0)
     bookingpopularity = models.IntegerField(default=0)
-    shift :models.CharField()
-    recipt:models.ImageField(upload_to="images/",null=False, blank=False)
+    shift =  models.CharField(max_length=10,default=0)
+    recipt= models.ImageField(upload_to="images/",null=False, blank=False,default=0)
 
     class Meta:
         ordering = ['-bookingpopularity']
