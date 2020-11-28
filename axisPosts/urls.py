@@ -15,7 +15,9 @@ urlpatterns = [
     path('posts/', views.userPosts, name='userPosts'),
     path('search/',views.searchPost,name='search'),
     path('booking/',views.booking,name='booking'),
+    path('bookingsubmit/', views.bookingsubmit, name='bookingsubmit'),
     path('apply/', views.apply, name='apply'),
+    path('applyondb/', views.applyondb, name='applyondb'),
     path('viewadmin/', views.viewadmin, name='viewadmin'),
 
     

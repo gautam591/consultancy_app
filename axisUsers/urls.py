@@ -16,5 +16,8 @@ urlpatterns = [
     path('terms/', views.terms, name='termsAndConditions'),
     path('gautam/', views.gautam, name='gautam'),
     path('passadmin/', views.passadmin, name='passadmin'),
+    path('studentinformation/', views.studentinformation, name='studentinformation'),
+    path('classinformation/', views.classinformation, name='classinformation'),
+    path('seminarinformation/', views.seminarinformation, name='seminarinformation'),
     
 ]

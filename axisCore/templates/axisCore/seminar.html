@@ -46,7 +46,7 @@ input[type=submit], input[type=reset]{
     <form>
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
-<form>
+<form  method="POST" action="{% url 'axisCore:seminarondb'%}">
 <tr>
     <td>Enter university name</td>
     <td>{{seminarForm.university}}

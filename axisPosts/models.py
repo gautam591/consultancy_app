@@ -19,9 +19,9 @@ class Post(models.Model):
         return self.postTitle
 
 class apply(models.Model):
-    firstname = models.CharField(max_length=10,default=0)
-    lastName = models.CharField(max_length=10 ,default=0)
-    email  = models.CharField(max_length=10,default=0)
+    firstname = models.CharField(max_length=20,default=0)
+    lastName = models.CharField(max_length=20,default=0)
+    email  = models.EmailField(max_length=50,default=0)
     mobile = models.IntegerField(default=0)
     gender = models.CharField(max_length=10,default=0)
     dob = models.DateField(default=0)
@@ -39,14 +39,15 @@ class apply(models.Model):
 class booking(models.Model):
     firstname=  models.CharField(max_length=10,default=0)
     lastName =  models.CharField(max_length=10,default=0)
-    email  = models.CharField(max_length=10,default=0,null=False)
+    email  = models.EmailField(max_length=50,default=0)
     mobile = models.IntegerField(default=0)
     gender =  models.CharField(max_length=10,default=0)
-    startdate = models.DateField(default=0)
+    startdate = models.DateField(blank=True,null=True)
     selectclass =  models.CharField(max_length=10,default=0)
     bookingpopularity = models.IntegerField(default=0)
     shift =  models.CharField(max_length=10,default=0)
-    recipt= models.ImageField(upload_to="images/",null=False, blank=False,default=0)
+    payment = models.CharField(max_length=10,default=0)
+    recipt = models.ImageField(upload_to="images/",null=True, blank=True)
 
     class Meta:
         ordering = ['-bookingpopularity']

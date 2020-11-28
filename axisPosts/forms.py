@@ -37,7 +37,7 @@ class  applyForm(forms.ModelForm):
     
     mobile = forms.IntegerField(label='mobile',required=True,
                             help_text='your email address',
-                            widget=forms.IntegerField())
+                            widget=forms.NumberInput(attrs={'placeholder':'phonenumber'}))
     
     gendertype = [('0', 'select'),('1', 'male'),('2', 'female'),('3', 'others')]   
     gender = forms.ChoiceField (label='gender',required=True,
@@ -66,11 +66,11 @@ class  applyForm(forms.ModelForm):
                               widget=forms.Select(attrs={'title': 'subject','class':'subject'}),choices=appliedfor) 
 
 
-class Meta:
+    class Meta:
         model = apply
         fields = ["firstName","lastName","email","mobile","gender","dob","address","hobby","qualifications","subject"]
 
-
+YEARS= [x for x in range(1940,2021)]
 class bookingForm(forms.ModelForm):
 
     firstName = forms.CharField(label='firstname', required=True,
@@ -80,21 +80,20 @@ class bookingForm(forms.ModelForm):
                              help_text=' your lastname',
                              widget=forms.TextInput(attrs={'placeholder':'lname', 'class':'lastname'}))
 
-    emailId = forms.EmailField(label='email',required=True,
+    email = forms.EmailField(label='email',required=True,
                             help_text='your email address',
                             widget= forms.TextInput(attrs={'placeholder':'abcd@gamil.com','class':'email'}))
     
     mobile = forms.IntegerField(label='mobile',required=True,
                             help_text='your email address',
-                            widget=forms.IntegerField())
+                            widget=forms.NumberInput(attrs={'placeholder':'phone no','class':'pno'}))
     
     gendertype = [('0', 'select'),('1', 'male'),('2', 'female'),('3', 'others')]   
     gender = forms.ChoiceField (label='gender',required=True,
                                 widget=forms.Select(attrs={'title': 'gender','class':'gender'}),choices=gendertype)   
     
-    startdate = forms.DateField(label='startdate',required=True,
-                            help_text='your estimated start date',
-                            widget=forms.TextInput(attrs={'placeholder':'start date','class':'startDate'}))
+    startdate = forms.DateField(label='startDate',required=False,
+                                widget=forms.SelectDateWidget(years=YEARS))
                      
     
 
@@ -104,12 +103,16 @@ class bookingForm(forms.ModelForm):
 
     selectshift = [('0', 'morning'),('1', 'afternoon'),('2', 'evening')]   
     shift = forms.ChoiceField (label='shift',required=True,
-                                widget=forms.Select(attrs={'title': 'shift','class':'shift'}),choices=selectclasses)
+                                widget=forms.Select(attrs={'title': 'shift','class':'shift'}),choices=selectshift)
 
-    Recipt = forms.ImageField(label="recipt", required=True,help_text="Upload Images of yourpayment")
+    paymentmethod = [('0', 'paypal'),('1', 'skrill'),('2', 'e-sewa')]   
+    payment = forms.ChoiceField (label='pm',required=True,
+                                widget=forms.Select(attrs={'title': 'pay','class':'pay'}),choices=paymentmethod)
 
-class Meta:
+    recipt = forms.ImageField(label="recipt", required=True,help_text="Upload Images of yourpayment")
+
+    class Meta:
         model = booking
-        fields = ["firstName","lastName","email","mobile","gender","startdate","selectclass","selectshift","recipt"]
+        fields = ["firstName","lastName","email","mobile","gender","startdate","selectclass","shift","payment","recipt"]
 
 

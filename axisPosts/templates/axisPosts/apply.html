@@ -43,133 +43,97 @@ input[type=submit], input[type=reset]{
 </head>
 <body  style=" background-color: #18191a;">
 <h2>submit your details here</h3>
- <form method="POST" enctype="multipart/form-data" class="applyform" id="applyform"> 
-    {%csrf_token%}
-    <h6 style="padding-top:2em;"><span class="error">*Required Fields</span></h6>
-    {{ uploadPostForm.non_field_errors }}
-    {{ uploadPostForm.source.errors }}
-    {{ uploadPostForm.source }}
+  <form method ="POST" action="{%url 'axisPosts:applyondb'%}">
+    {% csrf_token %}
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
 <tr>
 <td>First Name</td>
 <td>{{applyForm.firstName}}
-    <span class="error">* {{applyForm.firstName.errors}}</span>
+  <span class="error">{{applyForm.firstName.errors}}</span>
 </td>
 </tr>
 <!------------------------ Last Name --------------------------------------->
 <tr>
 <td>Last Name</td>
 <td>{{applyForm.lastName}}
-    <span class="error">* {{applyForm.lastName.errors}}</span>
+  <span class="error">{{applyForm.lastName.errors}}</span>
 </td>
 </tr>
 <!-------------------------- Email ID ------------------------------------->
 <tr>
 <td>Email ID</td>
 <td>{{applyForm.email}}
-    <span class="error">* {{applyForm.email.errors}}</span></td>
+  <span class="error"> {{applyForm.email.errors}}</span></td>
 </tr>
 <!-------------------------- Mobile Number ------------------------------------->
 <tr>
 <td>Mobile Number</td>
 <td>
-    {{applyForm.mobile}}
-    <span class="error">* {{applyForm.mobile.errors}}</span>
+  {{applyForm.mobile}}
+  <span class="error">{{applyForm.mobile.errors}}</span>
 </td>
 </tr>
 <!---------------------- Gender ------------------------------------->
 <tr>
 <td>Gender</td>
 <td>
-    {{applyForm.gender}}
-    <span class="error">* {{applyForm.gender.errors}}</span>
+  {{applyForm.gender}}
+  <span class="error">{{applyForm.gender.errors}}</span>
 </td>
 </tr>
 <!--------------------------Date Of Birth----------------------------------->
 <tr>
-<td>Date of Birth(DOB)</td>
+<td>Date of Birth</td>
 <td>
-    {{applyForm.dob}}
-    <span class="error">* {{applyForm.dob.errors}}</span>
+  {{applyForm.dob}}
+  <span class="error">{{applyForm.dob.errors}}</span>
 </td>
 </tr>
-<!------------------------- Address ---------------------------------->
 <tr>
-<td>Address<br /><br /><br /></td>
-<td>{{applyForm.address}}
-    <span class="error">* {{applyForm.address.errors}}</span></td>
-</tr>
-
-<!------------------------- Hobbies -------------------------------------->
-<tr>
-<td>Hobbies <br /><br /><br /></td>
-<td>
-    {{applyForm.hobby}}
-    <span class="error">* {{applyForm.hobby.errors}}</span>
-</td>
-</tr>
+    <td>Address</td>
+    <td>
+    {{applyForm.selectclass}}
+  <span class="error">{{applyForm.address.errors}}</span>
+    </td>
+    </tr>
 <!-----------------------Qualification---------------------------------------->
 <tr>
-<td>Qualification <br /><br /><br /></td>
-<td>
-<br/>
-{{applyForm.qualifications}}
-    <span class="error">* {{applyForm.qualifactions.errors}}</span>
+<td>Hobby <br /><br /><br /></td>
 
-</td>
-</tr>
-<!---------------------------- Courses ----------------------------------->
-<tr>
-<td>Courses<br />Applied For</td>
+<br/>
 <td>
-    {{applyForm.subject}}
-    <span class="error">* {{applyForm.subject.errors}}</span>
+{{applyForm.shift}}
+  <span class="error">{{applyForm.hobby.errors}}</span>
 </td>
 </tr>
+<tr>
+    <td>Qualification <br /><br /><br /></td>
+    <td>
+    <br/>
+    {{applyForm.qualifications}}
+  <span class="error">{{applyForm.qualifications.errors}}</span>
+        
+     
+    </td>
+    </tr>
+    <tr>
+        <td>Applying For</td>
+        <td>
+          {{applyForm.subject}}
+          <span class="error"> {{applyForm.subject.errors}}</span>
+        </td>
+        </tr>
+<!---------------------------- Courses ----------------------------------->
+
 <!----------------------- Submit and Reset ------------------------------->
 <tr>
 <td colspan="2" align="center">
-    <input class="newPostSubmitButton" type="submit" name="submitPost" value="submit">
-
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
 </td>
 </tr>
 </table>
 </form>
 </body>
 </html>
-<script>
-    $(document).ready(function(){
-      $('#applyform').submit(function(e){
-        e.preventDefault();
-        $form = $(this)
-        var formData = new FormData(this);
-        $.ajax({
-          type: 'POST',
-          url: "{% url 'axisPosts:applyFormonDB' %}",
-          data: formData,
-          cache: false,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-              if (response.Form=='SAVED'){
-                    alert("Your Post Was Sucessfully Uploaded !!");
-              }
-              else if(response.Error_message){
-                  $.each(response.errors, function(name, error){
-                      error = '<small class="text-muted error">' + error + '</small>'
-                      $form.find('[name=' + name + ']').after(error);
-                  })
-              }
-              else{
-                  alert("Error : "+response.error);
-              }
-          },
-          error: function(data) {
-                  alert("Something Went Wrong. Try Again !!")
-                }
-        });
-      });
-  
-    });
-  </script>

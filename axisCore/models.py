@@ -3,12 +3,12 @@ from autoslug import AutoSlugField
 
 # Create your models here.
 class seminar (models.Model):
-    university:models.CharField()
+    university:models.CharField(max_length=10)
     date :models.DateTimeField()
-    description :models.CharField()
+    description :models.CharField(max_length=2000)
     link = models.CharField(max_length=200)
     seminarpopularity = models.IntegerField(default=0)
-    recipt:models.ImageField(upload_to="images/",null=False, blank=False)
+ 
 
     class Meta:
         ordering = ['seminarpopularity']

@@ -43,34 +43,35 @@ input[type=submit], input[type=reset]{
 </head>
 <body  style=" background-color: #18191a;">
 <h2>submit your details here</h3>
-  <form method ="POST" action="{%url 'axisPosts:booking'%}">
+  <form method ="POST" action="{%url 'axisPosts:bookingsubmit'%}">
+    {% csrf_token %}
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
 <tr>
 <td>First Name</td>
 <td>{{bookingForm.firstName}}
-  <span class="error">* {{bookingForm.firstName.errors}}</span>
+  <span class="error">{{bookingForm.firstName.errors}}</span>
 </td>
 </tr>
 <!------------------------ Last Name --------------------------------------->
 <tr>
 <td>Last Name</td>
 <td>{{bookingForm.lastName}}
-  <span class="error">* {{bokkingForm.lastName.errors}}</span>
+  <span class="error">{{bokkingForm.lastName.errors}}</span>
 </td>
 </tr>
 <!-------------------------- Email ID ------------------------------------->
 <tr>
 <td>Email ID</td>
 <td>{{bookingForm.email}}
-  <span class="error">* {{bookingForm.email.errors}}</span></td>
+  <span class="error"> {{bookingForm.email.errors}}</span></td>
 </tr>
 <!-------------------------- Mobile Number ------------------------------------->
 <tr>
 <td>Mobile Number</td>
 <td>
   {{bookingForm.mobile}}
-  <span class="error">* {{bookingForm.mobile.errors}}</span>
+  <span class="error">{{bookingForm.mobile.errors}}</span>
 </td>
 </tr>
 <!---------------------- Gender ------------------------------------->
@@ -78,7 +79,7 @@ input[type=submit], input[type=reset]{
 <td>Gender</td>
 <td>
   {{bookingForm.gender}}
-  <span class="error">* {{bookingForm.gender.errors}}</span>
+  <span class="error">{{bookingForm.gender.errors}}</span>
 </td>
 </tr>
 <!--------------------------Date Of Birth----------------------------------->
@@ -86,32 +87,32 @@ input[type=submit], input[type=reset]{
 <td>Estimated starting date</td>
 <td>
   {{bookingForm.startdate}}
-  <span class="error">* {{bookingForm.startdate.errors}}</span>
+  <span class="error">{{bookingForm.startdate.errors}}</span>
 </td>
 </tr>
 <tr>
     <td>choose<br />class</td>
+    <td>
     {{bookingForm.selectclass}}
-  <span class="error">* {{bookingForm.selectclass.errors}}</span>
+  <span class="error">{{bookingForm.selectclass.errors}}</span>
     </td>
     </tr>
 <!-----------------------Qualification---------------------------------------->
 <tr>
 <td>Shift <br /><br /><br /></td>
-<td>
+
 <br/>
+<td>
 {{bookingForm.shift}}
-  <span class="error">* {{bookingForm.shift.errors}}</span>
+  <span class="error">{{bookingForm.shift.errors}}</span>
 </td>
 </tr>
 <tr>
     <td>Payment option <br /><br /><br /></td>
     <td>
     <br/>
-    <select id="shifts" style="font-size: 30px; font-style: bold; ">
-        <option value="ielts">skrill</option>
-        <option value="toefl" hre>paypal</option>
-        <option value="sat">e-Sewa</option>
+    {{bookingForm.payment}}
+  <span class="error">{{bookingForm.payment.errors}}</span>
         
       </select>
       <br>
@@ -122,7 +123,7 @@ input[type=submit], input[type=reset]{
         <td>payment receipt</td>
         <td>
           {{bookingForm.recipt}}
-          <span class="error">* {{bookingForm.recipt.errors}}</span>
+          <span class="error"> {{bookingForm.recipt.errors}}</span>
         </td>
         </tr>
 <!---------------------------- Courses ----------------------------------->

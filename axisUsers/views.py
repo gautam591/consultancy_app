@@ -8,6 +8,28 @@ from django.core import serializers
 #from django.template import loader
 from .forms import RegisterUser,LoginUser,userProfile
 from .models import User,userAwards
+from axisPosts.models import apply,booking
+from axisCore.models import seminar
+
+
+
+def studentinformation(request):
+    data = apply.objects.all()
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisUsers/studentinformation.html', data)
+
+def classinformation(request):
+    #template = loader.get_template('axisCore/base.html')
+    data = booking.objects.all()
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisUsers/classinformation.html', data)
+
+def seminarinformation(request):
+    #template = loader.get_template('axisCore/base.html')
+    data = seminar.objects.all()
+    context ={'data':data}
+    #return HttpResponse(template.render(context,request))
+    return render(request, 'axisUsers/seminarinformation.html', context)
 
 def gautam(request):
     #template = loader.get_template('axisUsers/login.html')

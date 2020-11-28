@@ -1,8 +1,9 @@
 # axisCore
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from .forms import seminarForm
 from axisPosts.models import Post,postReactions,postComments,commentReactions
 from axisUsers.models import User
 #from django.http import HttpResponse
@@ -51,10 +52,23 @@ def passadmin(request):
 
 def seminar(request):
     #template = loader.get_template('axisCore/base.html')
-    context = {'seminar':'seminar'}
+    
     #return HttpResponse(template.render(context,request))
-    return render(request, 'axisCore/seminar.html', context)
+    return render(request, 'axisCore/seminar.html', {'seminarForm':seminarForm()})
 
+def seminarondb(request):
+    if request.method == "POST":
+        form = seminarForm(request.POST)
+        if form.is_valid():
+            newPost = form.save(commit=False)
+            newPost.save()
+            return redirect("axiscore:base2")
+
+        else:
+            return JsonResponse({'Error':True,'Errors':form.errors})
+    else:
+        form = seminarForm()
+    return render(response, 'axisPosts/seminar.html',{'seminarForm':form})
 
 
 

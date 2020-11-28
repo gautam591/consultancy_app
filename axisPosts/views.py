@@ -15,17 +15,46 @@ def searchPost(request):
         data = Post.objects.filter(postTitle__icontains=searchQuery)
         return render(request,"axisPosts/search.html", {'data': data})
 
+def bookingsubmit(request):
+    if request.method == "POST":
+        form = bookingForm(request.POST,request.FILES)
+        if form.is_valid():
+            newPost = form.save(commit=False)
+            newPost.save()
+            return JsonResponse({'Form':"SAVED"})
+        else:
+            return JsonResponse({'Error':True,'Errors':form.errors})
+    else:
+        form = bookingForm()
+    return render(response, 'axisPosts/booking.html',{'bookingForm':form})
+
+def applyondb(request):
+    if request.method == "POST":
+        form = applyForm(request.POST,request.FILES)
+        if form.is_valid():
+            newPost = form.save(commit=False)
+            newPost.save()
+            return JsonResponse({'Form':"SAVED"})
+        else:
+            return JsonResponse({'Error':True,'Errors':form.errors})
+    else:
+        form = applyForm()
+    return render(response, 'axisPosts/booking.html',{'applyForm':form})
+
+
+
 
 def booking(request):
     #template = loader.get_template('axisCore/base.html')
+    
     #return HttpResponse(template.render(context,request))
     return render(request, 'axisPosts/booking.html', {'bookingForm':bookingForm()})
 
 def apply(request):
     #template = loader.get_template('axisCore/base.html')
-    context = {'apply':'apply'}
+    
     #return HttpResponse(template.render(context,request))
-    return render(request, 'axisPosts/apply.html', context)
+    return render(request, 'axisPosts/apply.html', {'applyForm':applyForm()})
 
 def postView(request):
     model = Post.objects.all()
@@ -98,19 +127,7 @@ def uploadPostonDB(response):
         form = uploadPostForm()
     return render(response, 'axisPosts/uploadPost.html',{'uploadPostForm':form})
 
-def applyFormonDB(response):
-    if response.method == "POST":
-        form = applyForm(response.POST,response.FILES)
-        if form.is_valid():
-            form.cleaned_data['postAuthor'] = response.user
-            newPost = form.save(commit=False)
-            newPost.save()
-            return JsonResponse({'Form':"SAVED"})
-        else:
-            return JsonResponse({'Error':True,'Errors':form.errors})
-    else:
-        form = applyForm()
-    return render(response, 'axisPosts/apply.html',{'applyForm':form})
+
     
 def postDetailView(request):
     if request.method == 'GET':
