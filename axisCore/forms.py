@@ -12,8 +12,8 @@ class seminarForm(forms.ModelForm):
     university= forms.CharField(label='university', required=True,
                              help_text='yourname', 
                              widget=forms.TextInput(attrs={'placeholder':'university name','class':'firstname'}))
-    date= forms.DateField(label='startDate',required=False,
-                            widget=forms.SelectDateWidget(attrs={'class':'optionSelection'},empty_label=("Choose Year", "Choose Month", "Choose Day")))
+    date = forms.DateField(label='startDate',required=False,
+                                widget=forms.SelectDateWidget(years=YEARS))
 
 
     description=forms.CharField(label='description',required=True,

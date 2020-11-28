@@ -43,10 +43,9 @@ class  applyForm(forms.ModelForm):
     gender = forms.ChoiceField (label='gender',required=True,
                                 widget=forms.Select(attrs={'title': 'gender','class':'gender'}),choices=gendertype)   
     
-    dob = forms.DateField(label='dob',required=True,
-                            help_text='yourdob',
-                            widget=forms.TextInput(attrs={'placeholder':'dob','class':'dob'}))
-                     
+    
+    dob = forms.DateField(label='startDate',required=False,
+                                widget=forms.SelectDateWidget(years=YEARS))                 
     
     address = forms.CharField(label='address',required=True,
                             help_text='your address',
