@@ -16,7 +16,8 @@ from axisCore.models import seminar
 def studentinformation(request):
     data = apply.objects.all()
     #return HttpResponse(template.render(context,request))
-    return render(request, 'axisUsers/studentinformation.html', data)
+    context = {'data':data}
+    return render(request, 'axisUsers/studentinformation.html', context)
 
 def classinformation(request):
     #template = loader.get_template('axisCore/base.html')

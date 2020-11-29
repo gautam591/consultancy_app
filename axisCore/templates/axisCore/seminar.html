@@ -23,8 +23,7 @@ table{
  border: 4px solid #000000;
  border-style: dashed;
   
-}
-table.inner{
+}table.inner{
  border: 10px
 }
 input[type=text], input[type=email], input[type=number]{
@@ -42,11 +41,12 @@ input[type=submit], input[type=reset]{
 </style>
 </head>
 <body  style=" background-color: #18191a;">
-<h2>submit your details here</h3>
-    <form>
+<h2>Enter the information abouut meeting</h3>
+    
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
 <form  method="POST" action="{% url 'axisCore:seminarondb'%}">
+    {% csrf_token %}
 <tr>
     <td>Enter university name</td>
     <td>{{seminarForm.university}}

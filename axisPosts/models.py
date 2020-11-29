@@ -17,7 +17,7 @@ class Post(models.Model):
         ordering = ['-postTitle']
     def __str__(self):
         return self.postTitle
-
+ 
 class apply(models.Model):
     firstName = models.CharField(max_length=20,default=0)
     lastName = models.CharField(max_length=20,default=0)
@@ -47,12 +47,15 @@ class booking(models.Model):
     bookingpopularity = models.IntegerField(default=0)
     shift =  models.CharField(max_length=10,default=0)
     payment = models.CharField(max_length=10,default=0)
-    recipt = models.ImageField(upload_to="images/",null=True, blank=True)
+    recipt = models.ImageField(upload_to="gautam/",null=True, blank=True)
 
     class Meta:
         ordering = ['-bookingpopularity']
     def __str__(self):
-        return self.firstname
+        return self.firstName
+
+    def __unicode__(self):
+     return self.file
 
 
 

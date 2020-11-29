@@ -62,7 +62,7 @@ def seminarondb(request):
         if form.is_valid():
             newPost = form.save(commit=False)
             newPost.save()
-            return redirect("axiscore:base2")
+            return redirect("axisCore:base2")
 
         else:
             return JsonResponse({'Error':True,'Errors':form.errors})

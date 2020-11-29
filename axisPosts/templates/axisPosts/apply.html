@@ -47,31 +47,31 @@ input[type=submit], input[type=reset]{
     {% csrf_token %}
     <table align="center" cellpadding = "10">
     <!--------------------- First Name ------------------------------------------>
-    <td> *Required </td>
+    
     <tr>
     <td>First Name</td>
-    <td>{{applyForm.firstName}}*
+    <td>{{applyForm.firstName}}
       <span class="error">{{applyForm.firstname.errors}}</span>
     </td>
     </tr>
     <!------------------------ Last Name --------------------------------------->
     <tr>
     <td>Last Name</td>
-    <td>{{applyForm.lastName}}*
+    <td>{{applyForm.lastName}}
       <span class="error">{{applyForm.lastName.errors}}</span>
     </td>
     </tr>
     <!-------------------------- Email ID ------------------------------------->
     <tr>
     <td>Email ID</td>
-    <td>{{applyForm.email}}*
+    <td>{{applyForm.email}}
       <span class="error"> {{applyForm.email.errors}}</span></td>
     </tr>
     <!-------------------------- Mobile Number ------------------------------------->
     <tr>
     <td>Mobile Number</td>
     <td>
-      {{applyForm.mobile}}*
+      {{applyForm.mobile}}
       <span class="error">{{applyForm.mobile.errors}}</span>
     </td>
     </tr>
@@ -79,7 +79,7 @@ input[type=submit], input[type=reset]{
     <tr>
     <td>Gender</td>
     <td>
-      {{applyForm.gender}}*
+      {{applyForm.gender}}
       <span class="error">{{applyForm.gender.errors}}</span>
     </td>
     </tr>
@@ -87,14 +87,14 @@ input[type=submit], input[type=reset]{
     <tr>
     <td>Date of Birth</td>
     <td>
-      {{applyForm.dob}}*
+      {{applyForm.dob}}
       <span class="error">{{applyForm.dob.errors}}</span>
     </td>
     </tr>
     <tr>
         <td>Address</td>
         <td>
-        {{applyForm.address}}*
+        {{applyForm.address}}
       <span class="error">{{applyForm.address.errors}}</span>
         </td>
         </tr>
@@ -120,7 +120,7 @@ input[type=submit], input[type=reset]{
         <tr>
             <td>Applying For</td>
             <td>
-              {{applyForm.subject}}*
+              {{applyForm.subject}}
               <span class="error"> {{applyForm.subject.errors}}</span>
             </td>
             </tr>

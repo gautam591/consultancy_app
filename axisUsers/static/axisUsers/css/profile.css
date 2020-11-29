@@ -80,6 +80,14 @@
     padding:0.5em;
     padding-left:1.5em;
 }
+
+.profileElement1{
+    width: 100%;
+    padding:0.5em;
+    padding-left:1.5em;
+    font-size: 10px;
+    color: aliceblue;
+}
 .profileElement2{
     width: auto;
     padding:0.5em;
