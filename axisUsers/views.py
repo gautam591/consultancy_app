@@ -41,7 +41,6 @@ def gautam(request):
             if userName=="gautam" and userPass=="1234567":
                 return redirect("axisCore:baseadmin")
             else :
-                #return redirect("../../")
                 return redirect("axisUsers:passadmin")
         
 def passadmin(request):

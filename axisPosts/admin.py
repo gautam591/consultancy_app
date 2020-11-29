@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Post,postComments,postReactions,commentReactions
+from .models import apply,booking
 # Register your models here.
 
 class PostViewAdmin(admin.ModelAdmin):
@@ -27,6 +28,8 @@ class CmtReactionsViewAdmin(admin.ModelAdmin):
     #prepopulated_fields = {'postSlug': ('postTitle',)}
 
 admin.site.register(Post, PostViewAdmin)
+admin.site.register(apply)
+admin.site.register(booking)
 admin.site.register(postComments, CommentViewAdmin)
 admin.site.register(postReactions, ReactionsViewAdmin)
 admin.site.register(commentReactions, CmtReactionsViewAdmin)

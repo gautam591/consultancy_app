@@ -25,10 +25,10 @@ class uploadPostForm(forms.ModelForm):
 YEARS= [x for x in range(1940,2021)]
 
 class  applyForm(forms.ModelForm): 
-    firstname = forms.CharField(label='firstname', required=True,
+    firstName = forms.CharField(label='firstName', required=True,
                              help_text='yourname', 
                              widget=forms.TextInput(attrs={'placeholder':'fname','class':'firstname'}))
-    lastName = forms.CharField(label='lastname', required=True ,
+    lastName = forms.CharField(label='lastName', required=True ,
                              help_text=' your lastname',
                              widget=forms.TextInput(attrs={'placeholder':'lname', 'class':'lastname'}))
 
@@ -45,7 +45,7 @@ class  applyForm(forms.ModelForm):
                                 widget=forms.Select(attrs={'title': 'gender','class':'gender'}),choices=gendertype)   
     
     
-    dob = forms.DateField(label='startDate',required=False,
+    dob = forms.DateField(label='dob',required=True,
                                 widget=forms.SelectDateWidget(years=YEARS))                 
     
     address = forms.CharField(label='address',required=True,
@@ -68,7 +68,7 @@ class  applyForm(forms.ModelForm):
 
     class Meta:
         model = apply
-        fields = ["firstname","lastName","email","mobile","gender","dob","address","hobby","qualifications","subject"]
+        fields = ["firstName","lastName","email","mobile","gender","dob","address","hobby","qualifications","subject"]
 
 YEARS= [x for x in range(1940,2021)]
 class bookingForm(forms.ModelForm):

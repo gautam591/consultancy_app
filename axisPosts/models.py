@@ -10,7 +10,7 @@ class Post(models.Model):
     postTitle = models.CharField(max_length=200,unique=False)
     content = models.TextField()
     postImage = models.ImageField(upload_to="images/",null=True, blank=True)
-    country= models.CharField(max_length=50) #Post Category:Regular/Complaint/Concern/Movement/Awareness
+    country= models.CharField(max_length=45) #Post Category:Regular/Complaint/Concern/Movement/Awareness
     updatedOn = models.DateTimeField(auto_now=True)
     
     class Meta:
@@ -19,7 +19,7 @@ class Post(models.Model):
         return self.postTitle
 
 class apply(models.Model):
-    firstname = models.CharField(max_length=20,default=0)
+    firstName = models.CharField(max_length=20,default=0)
     lastName = models.CharField(max_length=20,default=0)
     email  = models.EmailField(max_length=50,default=0)
     mobile = models.IntegerField(default=0)
@@ -34,7 +34,7 @@ class apply(models.Model):
     class Meta:
         ordering = ['-applypopularity']
     def __str__(self):
-        return self.applypopularity
+        return self.firstName
 
 class booking(models.Model):
     firstname=  models.CharField(max_length=10,default=0)
@@ -52,7 +52,7 @@ class booking(models.Model):
     class Meta:
         ordering = ['-bookingpopularity']
     def __str__(self):
-        return self.bookingpopularity
+        return self.firstname
 
 
 

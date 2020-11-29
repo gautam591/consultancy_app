@@ -32,18 +32,12 @@ def applyondb(request):
     if request.method == "POST":
         form = applyForm(request.POST)
         if form.is_valid():
-            print(">>>>>>>>>>>>>> FORM VALID !!",form.cleaned_data['firstName']) 
-
-            # 
+            print(">>>>>>>>>>>>>> FORM VALID !!",form.cleaned_data['firstName'])
             newPost = form.save(commit=False)
             newPost.save()
             return JsonResponse({'Form':"SAVED"})
         else:
-            # aaba error aauxa hohla form ma tei html mai..JSON ko satta
-            #feri run garam
-            #return JsonResponse({'Error':True,'Errors':form.errors})
-            #print(">>>>>>>>>>>>>>",form) 
-            print(">>Form NOT VALID !!!!") # talalko error ayo utani
+            print(">>Form NOT VALID !!!!")
             return render(request, 'axisPosts/apply.html',{'applyForm':form})
     else:
         form = applyForm()
@@ -150,8 +144,8 @@ def postDetailView(request):
             postRc =[]
         try :
             postCmts = postComments.objects.filter(postId=postId).order_by('-popularity')
-        except exp as Exception:
-            postCmts = []
+        except Exception as exp:
+            print("Exception Occured in postDetailView : ",exp)
             #print(exp)
         #print("Post Reaaction iS : ",postRc.reaction)
         context = {'post':post,'reactions':postRc,'comment_feed':postCmts}

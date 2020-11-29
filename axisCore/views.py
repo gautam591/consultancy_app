@@ -68,7 +68,7 @@ def seminarondb(request):
             return JsonResponse({'Error':True,'Errors':form.errors})
     else:
         form = seminarForm()
-    return render(response, 'axisPosts/seminar.html',{'seminarForm':form})
+    return render(request, 'axisPosts/seminar.html',{'seminarForm':form})
 
 
 
