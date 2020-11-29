@@ -1,0 +1,205 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    
+    <title>Project Axis</title>
+    <script src="https://kit.fontawesome.com/8ad826539a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/sidebar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/axisMenu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/themes/darkMode.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'axisCore/favicon.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisUsers/css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisUsers/css/seminar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisPosts/css/postFeed.css' %}">
+    <script type="text/javascript" src="{% static 'axisUsers/js/profile.js'%}"></script>
+
+    {% block stylesheet %}{% endblock %}
+    <script type="text/javascript" src="{% static 'axisCore/js/base.js'%}"></script>
+    <script type="text/javascript" src="{% static 'axisCore/js/uploadPost.js'%}"></script>
+    <script type="text/javascript" src="{% static 'axisCore/js/search.js'%}"></script>
+    <script type="text/javascript" src="{% static 'axisPosts/js/reactions.js'%}"></script>
+    <script type="text/javascript" src="{% static 'axisPosts/js/postDetail.js'%}"></script>
+    <script type="text/javascript" src="{% static 'axisUsers/js/profile.js'%}"></script>
+    <script src="https://chatwee-api.com/v2/script/5f5c99adc768a455e56bf452.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark axisNavbar" id="axisNavbar">
+        <a class="navbar-brand" href="{% url 'axisCore:base' %}">
+          <h3 style="font-family:'StrokeyBacon';font-weight:normal;padding:0px;margin:0px;position:relative;">capstone design </h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto">
+            <form class="form-inline search-form"  action="{% url 'axisPosts:search' %}" method="GET" role="form" onSubmit="return false;" >
+              {% csrf_token %}
+              <div class="form-group has-success has-feedback">
+                <input type="text" class="form-control searchQueryField"  id="search_query_input" placeholder="Search" required>
+                <span class="fas fa-search form-control-feedback searchQueryButton" style="cursor: pointer;"></span>
+              </div>
+            </form>
+          </ul>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class='headContent'>
+        <center style="padding-top:5em;padding-bottom:0em;">
+           <h1> Welcome capstone design project</h1>
+           <h3>
+             <span style="font-size:28px;">
+               
+                  <i class="fas fa-user-secret"></i>
+                  <h5>student</h5>
+                  
+        
+              </span>
+           </h3>
+        </center><br>
+      </div>
+    <div class="axisMenu" id="axisMenu">
+      <div class="axisMenuButtons">
+          <a class="axisMenuElements activeMenuElement" title="Home" href="{% url 'axisPosts:postView' %}">
+            <i class="fas fa-home" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Home</i> 
+          </a>
+          <a class="axisMenuElements" title="PMS" href="">
+            <i class="fas fa-tools" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">PMS</i> 
+          </a>
+          <a class="axisMenuElements " title="Cool Ninja" href="#">
+            <i class="fas fa-user-ninja" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Ninja</i> 
+          </a>
+          <a class="axisMenuElements" title="Axis Network" href="#">
+            <i class="fas fa-globe" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Axis Network</i> 
+          </a>
+          <a class="axisMenuElements" title="Terms" href="{% url 'axisUsers:termsAndConditions' %}">
+            <i class="fas fa-file-contract" style="font-size: 1.5em;margin-bottom:0;padding-top:4px;"></i>
+            <i style="font-style:normal;font-size:10px;margin-top:0;padding-top: 0;">Terms</i> 
+          </a>
+      </div>
+    </div>
+    {%if noSettingSidebar%}
+      <div class="redirectBar" title="Go Back To Where You Came From">
+        GO Back
+      </div>
+    {% endif %}
+    
+    <center style="color:white;">
+      {%if app_name%}
+        {{app_name}}
+      {%else%}
+        NONE
+      {%endif%}
+    </center>
+    <div class="overlapContentPage" id="overlapContentPage" style="display:none;">
+      <button type="button"name="uploadPostFormCloseButton"class="uploadPostFormCloseButton"id="uploadPostFormCloseButton"> Close </button>
+    </div>
+    <div class='homeContent'>
+      <div class="profileSidebar">
+        <div class="sticky">
+          {% include "axisCore/profileSidebar.html" %}
+        </div>
+      </div>
+
+      <main class="mainContent">
+        
+        {%if data%}
+           {%for gautam in data%}
+            <div class='postFeedCard'>
+                <div class="postFeedTitle">
+                   University/Country:&nbsp;{{gautam.university}}  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Seminar Date:&nbsp;{{gautam.date}}
+                </div>
+
+
+                 <hr style="margin:5px;margin-top:3px;">
+                <div class="postImageDiv">
+                
+                </div>
+                <script>
+                    function checkOverflow(element)
+                    {
+                        el = document.getElementById(element);
+                        var curOverflow = el.style.overflow;
+                        if ( !curOverflow || curOverflow === "visible" )
+                            el.style.overflow = "hidden";
+                        var isOverflowing = el.clientWidth < el.scrollWidth 
+                            || el.clientHeight < el.scrollHeight;
+                        el.style.overflow = curOverflow;
+                        return isOverflowing;
+                    }
+                    console.log(checkOverflow("postImage-{{post.id}}"));
+                </script>
+                <div class="postFeedText" style="font-size: 15px; border:2px solod gray"> description:</div>
+               
+                <form method="post" class="postFeedReact">
+                    <a href="{{gauatm.link}}" name="viewPost" class="postFeedViewButton"   target="_blank " style="border: 10px solid blue ,background-attachment: fixed;">join meeting</a>                    
+                          
+                </form>
+               
+                <div class="post-upd"><small> posted At : {{ post.updatedOn }}</small></div>
+            </div>
+          {%endfor%}
+        {%else%}
+        <div class="loadMore" id="loadCompleteDiv">
+            <span class="loadMoreButton" >There are No students.</span>
+            <span class="loadComplete" title="No Posts Available">Looks Like There is a Problem !! Try Reloading the Page to Load Posts</span>
+        </div>
+
+      {%endif%}
+      </main>
+
+      
+      {%if noSettingSidebar%}
+      {% else %}
+        <div class="settingSidebar">
+          <div class="sticky">
+          {% include "axisCore/settingSidebar.html" %}
+          {% block customSidebar %} {% endblock customSidebar %}
+          </div>
+        </div>
+      {% endif %}
+
+     </div>
+
+   <footer>
+    <a href="#">
+      <i class="fa fa-twitter" ></i>
+    </a>
+    <a href="#">
+     <i class="fa fa-facebook" aria-hidden="true" ></i>
+   </a>
+   <a href="#">
+     <i class="fa fa-instagram" ></i>
+   </a>
+   <a href="#">
+     <i class="fa fa-google" ></i>
+   </a>
+
+      
+     
+
+   
+   
+
+<html>
+    <head>
+
+ 

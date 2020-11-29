@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 #from django.views import generic
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -32,10 +32,10 @@ def applyondb(request):
     if request.method == "POST":
         form = applyForm(request.POST)
         if form.is_valid():
-            print(">>>>>>>>>>>>>> FORM VALID !!",form.cleaned_data['firstName'])
+            
             newPost = form.save(commit=False)
             newPost.save()
-            return JsonResponse({'Form':"SAVED"})
+            return redirect ("axisCore:base1")
         else:
             print(">>Form NOT VALID !!!!")
             return render(request, 'axisPosts/apply.html',{'applyForm':form})

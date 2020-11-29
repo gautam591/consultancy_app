@@ -3,6 +3,7 @@ from django.db import models
 from axisUsers.models import User
 from autoslug import AutoSlugField
 import datetime
+
 #import re
 
 # Create your models here.
@@ -17,20 +18,52 @@ class Post(models.Model):
         ordering = ['-postTitle']
     def __str__(self):
         return self.postTitle
- 
+gender=(
+         ('Male', 'Male'),
+         ('Female', 'female'),
+         ('Others','others')
+
+        )
+
+hobby=(
+         ('Drawing', 'singing'),
+         ('Swimming', 'swimming'),
+         ('Dancing','Dancing'),
+         ('Reading','reading')
+
+        )
+
+qualification=(
+         ('High School', 'High School'),
+         ('Higher school', 'higher school'),
+         ('Bachelors','Bachelors'),
+         ('P.H.D','P.H.D')
+
+        )
+
+subject=(
+         ('Computer Science', 'Computer science'),
+         ('MBA', 'MBA'),
+         ('BBA','BBA'),
+         ('civil Engineer','CIvil Engineer')
+
+        )
+
+
 class apply(models.Model):
     firstName = models.CharField(max_length=20,default=0)
     lastName = models.CharField(max_length=20,default=0)
+    university = models.CharField(max_length=50,default=0)
     email  = models.EmailField(max_length=50,default=0)
-    mobile = models.IntegerField(default=0)
-    gender = models.CharField(max_length=10,default=0)
+    mobile = models.CharField(max_length=20,default=0)
+    gender = models.CharField(max_length=10,choices=gender)
     dob = models.DateField(default=0)
     address = models.CharField(max_length=50,null=False,default=0)
-    hobby = models.CharField(max_length=10,default=0)
-    qualifications = models.CharField(max_length=10,default=0)
-    subject = models.CharField(max_length=10,default=0)
+    hobby = models.CharField(max_length=20,choices=hobby)
+    qualifications = models.CharField(max_length=30,choices=qualification)
+    subject = models.CharField(max_length=20,choices=subject)
     applypopularity = models.IntegerField(default=0)
-
+    appliedon = models.DateTimeField(auto_now=True)
     class Meta:
         ordering = ['-applypopularity']
     def __str__(self):
@@ -41,7 +74,7 @@ class booking(models.Model):
     lastName =  models.CharField(max_length=10,default=0)
     email  = models.EmailField(max_length=50,default=0)
     mobile = models.IntegerField(default=0)
-    gender =  models.CharField(max_length=10,default=0)
+    gender =  models.CharField(max_length=10,choices=gender)
     startdate = models.DateField(blank=True,null=True)
     selectclass =  models.CharField(max_length=10,default=0)
     bookingpopularity = models.IntegerField(default=0)

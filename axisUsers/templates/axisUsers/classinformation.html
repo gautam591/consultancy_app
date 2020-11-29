@@ -1,6 +1,4 @@
-
-
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -14,6 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisPosts/css/postFeed.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/sidebar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/axisMenu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'axisCore/css/themes/darkMode.css' %}">
@@ -118,56 +117,62 @@
         </div>
       </div>
 
-
-    <main class="mainContent">
-    {% if data %}
-          {% for gautam in data %}  
-
-            <div class='postFeedCard'>
-                <div class="postFeedTitle">
-                   university/country: {{gautam.university}}
-                </div>
-                <div class="postfeedcountry" style="color: red;">date of seminar:{{gautam.date}} </div>
-
-                 <hr style="margin:5px;margin-top:3px;">
-                <div class="postImageDiv">
-                
-                </div>
-                <script>
-                    function checkOverflow(element)
-                    {
-                        el = document.getElementById(element);
-                        var curOverflow = el.style.overflow;
-                        if ( !curOverflow || curOverflow === "visible" )
-                            el.style.overflow = "hidden";
-                        var isOverflowing = el.clientWidth < el.scrollWidth 
-                            || el.clientHeight < el.scrollHeight;
-                        el.style.overflow = curOverflow;
-                        return isOverflowing;
-                    }
-                    console.log(checkOverflow("postImage-{{post.id}}"));
-                </script>
-                <div class="postFeedText" style="font-size: 15px;"> description:{{gautam.description}}</div>
+      <main class="mainContent">
+        <main class="mainContent">
+            {% if data %}
+                  {% for gautam in data %}  
+        
+                    <div class='postFeedCard'>
+                        <div class="postFeedTitle" style="font-size: 20px;color: aliceblue;">
+                            Name: &nbsp; &nbsp;{{gautam.firstName}}  {{gautam.lastName}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    University:{{gautam.university}}
+                        </div>
+                        
+                   
+                         <div class="postFeedTitle">
+                          Gender: &nbsp; &nbsp;{{gautam.gender}} &nbsp; &nbsp;    Mobile: &nbsp;{{gautam.mobile}}
+                         </div>
+        
+                         
+                            <div class="postFeedTitle">
+                               Date of Birth: &nbsp; {{gautam.dob}}    
+                            </div>
+                    
+                         <div class="postFeedTitle">
+                            Email Id: &nbsp;{{gautam.email}}    
+                         </div>
+        
+                   
+                         <div class="postFeedTitle">
+                             Address: &nbsp;{{gautam.address}}    
+                         </div>
+                    
+                         <div class="postFeedTitle">
+                             Qualification: &nbsp; {{gautam.qualifications}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
+                        </div>
+                    
+                        <div class="postFeedTitle">
+                            Applied for:  &nbsp;{{gautam.subject}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
+                        </div>
+                   
+                       
+        
+           
+                        </form>
+                       
+                        <div class="post-upd"><small> applieddate : &nbsp; {{ gautam.appliedon }}</small></div>
+                    </div>
+                  {%endfor%}
                
-                <form method="post" class="postFeedReact">
-                                        
-                    <a href="'det_wpisu.adres_www':{{gautam.link}}" name="viewPost" class="postFeedViewButton" style="border: 10px solid blue ,background-attachment: fixed;">join meeting</a>      
-                </form>
-               
-                <div class="post-upd"><small> posted At : {{ post.updatedOn }}</small></div>
-            </div>
-          {%endfor%}
-       
-    {%else%}
-        <div class="loadMore" id="loadCompleteDiv">
-            <span class="loadMoreButton" >There are No students.</span>
-            <span class="loadComplete" title="No Posts Available">Looks Like There is a Problem !! Try Reloading the Page to Load Posts</span>
-        </div>
-    {%endif%}
-    
-      </main>
+            {%else%}
+                <div class="loadMore" id="loadCompleteDiv">
+                    <span class="loadMoreButton" >There are No students.</span>
+                    <span class="loadComplete" title="No Posts Available">Looks Like There is a Problem !! Try Reloading the Page to Load Posts</span>
+                </div>
+            {%endif%}
+            
+              </main>
+      </main> 
 
-     
       {%if noSettingSidebar%}
       {% else %}
         <div class="settingSidebar">
@@ -180,29 +185,10 @@
 
      </div>
 
-
    <footer>
-    <a href="#">
-      <i class="fa fa-twitter" style="font-size: 50px;"></i>
-    </a>
-    <a href="#">
-     <i class="fa fa-facebook" aria-hidden="true" style="font-size: 50px;"></i>
-   </a>
-   <a href="#">
-     <i class="fa fa-instagram" style="font-size: 50px;" ></i>
-   </a>
-   <a href="#">
-     <i class="fa fa-google" style="font-size: 50px;" ></i>
-   </a>
    
-
-      
-     
-
-   
-   
-
-<html>
-    <head>
-
+    <a href="https://github.com/gautam591"  target="_blank">GitHub : Gautam</a></p>
+   </footer>
   
+  </body>
+</html>

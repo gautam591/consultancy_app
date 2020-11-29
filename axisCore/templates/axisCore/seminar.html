@@ -48,7 +48,7 @@ input[type=submit], input[type=reset]{
 <form  method="POST" action="{% url 'axisCore:seminarondb'%}">
     {% csrf_token %}
 <tr>
-    <td>Enter university name</td>
+    <td>University/country</td>
     <td>{{seminarForm.university}}
         <span class="error">* {{seminarForm.university.errors}}</span></td>
 </tr>

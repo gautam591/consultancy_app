@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
-from axisPosts.models import Post, apply,booking
+from axisPosts.models import Post, apply,booking,gender,hobby,qualification,subject
 
 
 class uploadPostForm(forms.ModelForm):
@@ -27,22 +27,25 @@ YEARS= [x for x in range(1940,2021)]
 class  applyForm(forms.ModelForm): 
     firstName = forms.CharField(label='firstName', required=True,
                              help_text='yourname', 
-                             widget=forms.TextInput(attrs={'placeholder':'fname','class':'firstname'}))
+                             widget=forms.TextInput(attrs={'placeholder':'firstname','class':'firstname'}))
     lastName = forms.CharField(label='lastName', required=True ,
                              help_text=' your lastname',
-                             widget=forms.TextInput(attrs={'placeholder':'lname', 'class':'lastname'}))
-
+                             widget=forms.TextInput(attrs={'placeholder':'lastname', 'class':'lastname'}))
+     
+    university = forms.CharField(label='selected university', required=True ,
+                             help_text=' your lastname',
+                             widget=forms.TextInput(attrs={'placeholder':'selected university', 'class':'lastname'}))
     email = forms.EmailField(label='email',required=True,
                             help_text='your email address',
                             widget= forms.TextInput(attrs={'placeholder':'abcd@gamil.com','class':'email'}))
     
-    mobile = forms.IntegerField(label='mobile',required=True,
+    mobile = forms.CharField(label='mobile',required=True,
                             help_text='your email address',
-                            widget=forms.NumberInput(attrs={'placeholder':'phonenumber'}))
+                            widget=forms.TextInput(attrs={'placeholder':'phonenumber'}))
     
-    gendertype = [('0', 'select'),('1', 'male'),('2', 'female'),('3', 'others')]   
+     
     gender = forms.ChoiceField (label='gender',required=True,
-                                widget=forms.Select(attrs={'title': 'gender','class':'gender'}),choices=gendertype)   
+                                widget=forms.Select(attrs={'title': 'gender','class':'gender'}),choices=gender)   
     
     
     dob = forms.DateField(label='dob',required=True,
@@ -52,23 +55,23 @@ class  applyForm(forms.ModelForm):
                             help_text='your address',
                             widget=forms.TextInput(attrs={'placeholder':'','class':'address'}))
 
-    selecthobbies = [('0', 'select'),('1', 'drawing'),('2', 'signing'),('3', 'dancing')]   
+      
     hobby = forms.ChoiceField (label='hobby',required=False,
-                                widget=forms.Select(attrs={'title': 'hobby','class':'hobby'}),choices=selecthobbies)
+                                widget=forms.Select(attrs={'title': 'hobby','class':'hobby'}),choices=hobby)
 
-    yourqualification = [('0', 'select'),('1', 'high school '),('2', 'higherschool'),('3', 'bacelors'),('4', 'masters')]   
+      
     qualifications = forms.ChoiceField (label='qualifications',required=False,
-                                widget=forms.Select(attrs={'title': 'qualifations','class':'qualifications'}),choices=yourqualification)
+                                widget=forms.Select(attrs={'title': 'qualifations','class':'qualifications'}),choices=qualification)
 # 
 
-    appliedfor = [('0', 'select'),('1', 'computer science'),('2', 'MBA'),('3', 'BBA')]   
+ 
     subject = forms.ChoiceField (label='subject',required=True,
-                              widget=forms.Select(attrs={'title': 'subject','class':'subject'}),choices=appliedfor) 
+                              widget=forms.Select(attrs={'title': 'subject','class':'subject'}),choices=subject) 
 
 
     class Meta:
         model = apply
-        fields = ["firstName","lastName","email","mobile","gender","dob","address","hobby","qualifications","subject"]
+        fields = ["firstName","lastName", "university","email","mobile","gender","dob","address","hobby","qualifications","subject"]
 
 YEARS= [x for x in range(1940,2021)]
 class bookingForm(forms.ModelForm):
