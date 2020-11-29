@@ -26,20 +26,28 @@ def bookingsubmit(request):
             return JsonResponse({'Error':True,'Errors':form.errors})
     else:
         form = bookingForm()
-    return render(response, 'axisPosts/booking.html',{'bookingForm':form})
+    return render(request, 'axisPosts/booking.html',{'bookingForm':form})
 
 def applyondb(request):
     if request.method == "POST":
-        form = applyForm(request.POST,request.FILES)
+        form = applyForm(request.POST)
         if form.is_valid():
+            print(">>>>>>>>>>>>>> FORM VALID !!",form.cleaned_data['firstName']) 
+
+            # 
             newPost = form.save(commit=False)
             newPost.save()
             return JsonResponse({'Form':"SAVED"})
         else:
-            return JsonResponse({'Error':True,'Errors':form.errors})
+            # aaba error aauxa hohla form ma tei html mai..JSON ko satta
+            #feri run garam
+            #return JsonResponse({'Error':True,'Errors':form.errors})
+            #print(">>>>>>>>>>>>>>",form) 
+            print(">>Form NOT VALID !!!!") # talalko error ayo utani
+            return render(request, 'axisPosts/apply.html',{'applyForm':form})
     else:
         form = applyForm()
-    return render(response, 'axisPosts/booking.html',{'applyForm':form})
+    return render(request, 'axisPosts/apply.html',{'applyForm':form})
 
 
 

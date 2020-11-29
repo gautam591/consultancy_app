@@ -6,7 +6,7 @@ from axisUsers.models import User
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
 
-
+YEARS= [x for x in range(1940,2021)]
 class seminarForm(forms.ModelForm):
 
     university= forms.CharField(label='university', required=True,

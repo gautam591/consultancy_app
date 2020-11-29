@@ -22,16 +22,17 @@ class uploadPostForm(forms.ModelForm):
         model = Post
         fields = ["postTitle","content","postImage","country"]
 
+YEARS= [x for x in range(1940,2021)]
 
-class  applyForm(forms.ModelForm):
-    firstName = forms.CharField(label='firstname', required=True,
+class  applyForm(forms.ModelForm): 
+    firstname = forms.CharField(label='firstname', required=True,
                              help_text='yourname', 
                              widget=forms.TextInput(attrs={'placeholder':'fname','class':'firstname'}))
     lastName = forms.CharField(label='lastname', required=True ,
                              help_text=' your lastname',
                              widget=forms.TextInput(attrs={'placeholder':'lname', 'class':'lastname'}))
 
-    emailId = forms.EmailField(label='email',required=True,
+    email = forms.EmailField(label='email',required=True,
                             help_text='your email address',
                             widget= forms.TextInput(attrs={'placeholder':'abcd@gamil.com','class':'email'}))
     
@@ -52,13 +53,13 @@ class  applyForm(forms.ModelForm):
                             widget=forms.TextInput(attrs={'placeholder':'','class':'address'}))
 
     selecthobbies = [('0', 'select'),('1', 'drawing'),('2', 'signing'),('3', 'dancing')]   
-    hobby = forms.MultipleChoiceField (label='hobby',required=False,
+    hobby = forms.ChoiceField (label='hobby',required=False,
                                 widget=forms.Select(attrs={'title': 'hobby','class':'hobby'}),choices=selecthobbies)
 
     yourqualification = [('0', 'select'),('1', 'high school '),('2', 'higherschool'),('3', 'bacelors'),('4', 'masters')]   
-    qualifications = forms.MultipleChoiceField (label='qualifications',required=False,
+    qualifications = forms.ChoiceField (label='qualifications',required=False,
                                 widget=forms.Select(attrs={'title': 'qualifations','class':'qualifications'}),choices=yourqualification)
-
+# 
 
     appliedfor = [('0', 'select'),('1', 'computer science'),('2', 'MBA'),('3', 'BBA')]   
     subject = forms.ChoiceField (label='subject',required=True,
@@ -67,7 +68,7 @@ class  applyForm(forms.ModelForm):
 
     class Meta:
         model = apply
-        fields = ["firstName","lastName","email","mobile","gender","dob","address","hobby","qualifications","subject"]
+        fields = ["firstname","lastName","email","mobile","gender","dob","address","hobby","qualifications","subject"]
 
 YEARS= [x for x in range(1940,2021)]
 class bookingForm(forms.ModelForm):
@@ -110,7 +111,7 @@ class bookingForm(forms.ModelForm):
 
     recipt = forms.ImageField(label="recipt", required=True,help_text="Upload Images of yourpayment")
 
-    class Meta:
+    class Meta: # 
         model = booking
         fields = ["firstName","lastName","email","mobile","gender","startdate","selectclass","shift","payment","recipt"]
 
