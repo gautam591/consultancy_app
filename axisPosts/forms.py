@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
-from axisPosts.models import Post, apply,booking,gender,hobby,qualification,subject
+from axisPosts.models import Post, apply,booking,gender,hobby,qualification,subject,selectclass,shift,payment
 
 
 class uploadPostForm(forms.ModelForm):
@@ -87,34 +87,34 @@ class bookingForm(forms.ModelForm):
                             help_text='your email address',
                             widget= forms.TextInput(attrs={'placeholder':'abcd@gamil.com','class':'email'}))
     
-    mobile = forms.IntegerField(label='mobile',required=True,
+    mobile = forms.CharField(label='mobile',required=True,
                             help_text='your email address',
-                            widget=forms.NumberInput(attrs={'placeholder':'phone no','class':'pno'}))
+                            widget=forms.TextInput(attrs={'placeholder':'phone no','class':'pno'}))
     
-    gendertype = [('0', 'select'),('1', 'male'),('2', 'female'),('3', 'others')]   
+    
     gender = forms.ChoiceField (label='gender',required=True,
-                                widget=forms.Select(attrs={'title': 'gender','class':'gender'}),choices=gendertype)   
+                                widget=forms.Select(attrs={'title': 'gender','class':'gender'}),choices=gender)   
     
     startdate = forms.DateField(label='startDate',required=False,
                                 widget=forms.SelectDateWidget(years=YEARS))
                      
     
 
-    selectclasses = [('0', 'ielts'),('1', 'Toefl'),('2', 'sat'),('3', 'gre')]   
+     
     selectclass = forms.ChoiceField (label='selectclass',required=True,
-                                widget=forms.Select(attrs={'title': 'class','class':'class'}),choices=selectclasses)
+                                widget=forms.Select(attrs={'title': 'class','class':'class'}),choices=selectclass)
 
-    selectshift = [('0', 'morning'),('1', 'afternoon'),('2', 'evening')]   
+   
     shift = forms.ChoiceField (label='shift',required=True,
-                                widget=forms.Select(attrs={'title': 'shift','class':'shift'}),choices=selectshift)
+                                widget=forms.Select(attrs={'title': 'shift','class':'shift'}),choices=shift)
 
-    paymentmethod = [('0', 'paypal'),('1', 'skrill'),('2', 'e-sewa')]   
+  
     payment = forms.ChoiceField (label='pm',required=True,
-                                widget=forms.Select(attrs={'title': 'pay','class':'pay'}),choices=paymentmethod)
+                                widget=forms.Select(attrs={'title': 'pay','class':'pay'}),choices=payment)
 
     recipt = forms.ImageField(label="recipt", required=True,help_text="Upload Images of yourpayment")
 
-    class Meta: # 
+    class Meta: 
         model = booking
         fields = ["firstName","lastName","email","mobile","gender","startdate","selectclass","shift","payment","recipt"]
 

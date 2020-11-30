@@ -6,8 +6,8 @@
   <link rel="shortcut icon" type="image/png" href="{% static 'axisCore/favicon.ico' %}">
   {% block stylesheet %}{% endblock %}
 </head>
-<html>
-<main>
+<body style="border:12px solid white ; border-radius: 4cm;">
+<main >
   <div class="circle circle-lime"></div>
   <form action="{%url 'axisUsers:gautam'%}" method="post">
     {% csrf_token %}

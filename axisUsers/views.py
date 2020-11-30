@@ -22,8 +22,9 @@ def studentinformation(request):
 def classinformation(request):
     #template = loader.get_template('axisCore/base.html')
     data = booking.objects.all()
+    context={'data':data}
     #return HttpResponse(template.render(context,request))
-    return render(request, 'axisUsers/classinformation.html', data)
+    return render(request, 'axisUsers/classinformation.html', context)
 
 def seminarinformation(request):
     #template = loader.get_template('axisCore/base.html')

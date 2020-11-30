@@ -49,6 +49,29 @@ subject=(
 
         )
 
+selectclass=(
+         ('IELTS', 'IELTS'),
+         ('TOEFL', 'TOEFL'),
+         ('SAT','SAT'),
+         ('GRE','GRE')
+
+        )
+
+shift=(
+         ('Morning', 'Morning'),
+         ('Afternoon', 'Afternoon'),
+         ('Evening','Evening'),
+
+        )
+
+payment=(
+         ('SKrill', 'Skrill'),
+         ('PAypal', 'Paypal'),
+         ('e-sewa','esewa'),
+       
+
+        )
+
 
 class apply(models.Model):
     firstName = models.CharField(max_length=20,default=0)
@@ -73,19 +96,19 @@ class booking(models.Model):
     firstname=  models.CharField(max_length=10,default=0)
     lastName =  models.CharField(max_length=10,default=0)
     email  = models.EmailField(max_length=50,default=0)
-    mobile = models.IntegerField(default=0)
-    gender =  models.CharField(max_length=10,choices=gender)
+    mobile = models.CharField( max_length=20,default=0)
+    gender =  models.CharField(max_length=20,choices=gender)
     startdate = models.DateField(blank=True,null=True)
-    selectclass =  models.CharField(max_length=10,default=0)
+    selectclass =  models.CharField(max_length=10,choices=selectclass)
     bookingpopularity = models.IntegerField(default=0)
-    shift =  models.CharField(max_length=10,default=0)
-    payment = models.CharField(max_length=10,default=0)
-    recipt = models.ImageField(upload_to="gautam/",null=True, blank=True)
-
+    shift =  models.CharField(max_length=20,choices=shift)
+    payment = models.CharField(max_length=20,choices=payment)
+    recipt = models.ImageField(upload_to="images/",null=True, blank=True)
+   
     class Meta:
         ordering = ['-bookingpopularity']
     def __str__(self):
-        return self.firstName
+        return self.firstname
 
     def __unicode__(self):
      return self.file

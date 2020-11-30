@@ -124,7 +124,7 @@
         
                     <div class='postFeedCard'>
                         <div class="postFeedTitle" style="font-size: 20px;color: aliceblue;">
-                            Name: &nbsp; &nbsp;{{gautam.firstName}}  {{gautam.lastName}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    University:{{gautam.university}}
+                            Name: &nbsp; &nbsp;{{gautam.firstname}}  {{gautam.lastName}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    Class:&nbsp;{{gautam.selectclass}}
                         </div>
                         
                    
@@ -134,7 +134,7 @@
         
                          
                             <div class="postFeedTitle">
-                               Date of Birth: &nbsp; {{gautam.dob}}    
+                               Estimated start date: &nbsp; {{gautam.startdate}}    
                             </div>
                     
                          <div class="postFeedTitle">
@@ -142,18 +142,21 @@
                          </div>
         
                    
-                         <div class="postFeedTitle">
-                             Address: &nbsp;{{gautam.address}}    
-                         </div>
+                         
                     
                          <div class="postFeedTitle">
-                             Qualification: &nbsp; {{gautam.qualifications}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
+                             shift: &nbsp; {{gautam.shift}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
                         </div>
                     
                         <div class="postFeedTitle">
-                            Applied for:  &nbsp;{{gautam.subject}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
+                            Payment:  &nbsp;{{gautam.payment}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
                         </div>
-                   
+                       
+                        <div class="postImageDiv">
+                          {% if gautam.recipt %}
+                              <img src="{{gautam.recipt.url}}" alt="Post Image" id="postImage-{{post.id}}" height="250" width="250" style="max-height:20em;object-fit:cover;">
+                          {% endif %}
+                          </div>
                        
         
            

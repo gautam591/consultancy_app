@@ -43,7 +43,7 @@ input[type=submit], input[type=reset]{
 </head>
 <body  style=" background-color: #18191a;">
 <h2>submit your details here</h3>
-  <form method ="POST" action="{%url 'axisPosts:bookingsubmit'%}">
+  <form method ="POST" action="{%url 'axisPosts:bookingsubmit'%}" enctype="multipart/form-data">
     {% csrf_token %}
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
@@ -91,7 +91,7 @@ input[type=submit], input[type=reset]{
 </td>
 </tr>
 <tr>
-    <td>choose<br />class</td>
+    <td>Choose Class</td>
     <td>
     {{bookingForm.selectclass}}
   <span class="error">{{bookingForm.selectclass.errors}}</span>
@@ -123,7 +123,7 @@ input[type=submit], input[type=reset]{
         <td>payment receipt</td>
         <td>
           {{bookingForm.recipt}}
-          <span class="error"> {{bookingForm.recipt.errors}}</span>
+          <span class="error"> {{bookingForm.image.recipt}}</span>
         </td>
         </tr>
 <!---------------------------- Courses ----------------------------------->

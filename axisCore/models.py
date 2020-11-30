@@ -4,7 +4,7 @@ from django.utils import timezone
 
 # Create your models here.
 class seminar (models.Model):
-    university = models.CharField(max_length=10,default="NULL")
+    university = models.CharField(max_length=20,default="NULL")
     date = models.DateTimeField()
     description = models.CharField(max_length=2000,default='NULL')
     link = models.CharField(max_length=200,default="NULL")

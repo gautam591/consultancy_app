@@ -21,7 +21,7 @@ def bookingsubmit(request):
         if form.is_valid():
             newPost = form.save(commit=False)
             newPost.save()
-            return JsonResponse({'Form':"SAVED"})
+            return redirect("axisCore:base1")
         else:
             return JsonResponse({'Error':True,'Errors':form.errors})
     else:
@@ -243,4 +243,4 @@ def userPosts(request):
         return render(request, 'axisPosts/postList.html',context) 
 
     return render(request,'axisPosts/userPosts.html',context) 
-    #return render(request, 'axisPosts/userPosts.html',{'context':"context"})
+     #return render(request, 'axisPosts/userPosts.html',{'context':"context"})
