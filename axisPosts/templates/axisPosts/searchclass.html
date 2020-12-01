@@ -1,0 +1,68 @@
+{% block stylesheet %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'axisPosts/css/postFeed.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axisPosts/css/themes/darkMode.css' %}">
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
+<div class="postFeed" id="search_feed">
+    {% if classinfo %}
+        {% for gautam in classinfo %}  
+
+      <div class='postFeedCard'>
+          <div class="postFeedTitle" style="font-size: 20px;color: aliceblue;">
+              Name: &nbsp; &nbsp;{{gautam.firstname}}  {{gautam.lastName}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    Class:&nbsp;{{gautam.selectclass}}
+          </div>
+          
+     
+           <div class="postFeedTitle">
+            Gender: &nbsp; &nbsp;{{gautam.gender}} &nbsp; &nbsp;    Mobile: &nbsp;{{gautam.mobile}}
+           </div>
+
+           
+              <div class="postFeedTitle">
+                 Estimated start date: &nbsp; {{gautam.startdate}}    
+              </div>
+      
+           <div class="postFeedTitle">
+              Email Id: &nbsp;{{gautam.email}}    
+           </div>
+
+     
+           
+      
+           <div class="postFeedTitle">
+               shift: &nbsp; {{gautam.shift}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
+          </div>
+      
+          <div class="postFeedTitle">
+              Payment:  &nbsp;{{gautam.payment}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
+          </div>
+         
+          <div class="postImageDiv">
+            <label  class="postFeedTitle">Recipt:&nbsp;</label>
+            {% if gautam.recipt %}
+                <img src="{{gautam.recipt.url}}" alt="Post Image" id="postImage-{{post.id}}" height="250" width="250" style="max-height:20em;object-fit:cover;">
+            {% endif %}
+            </div>
+         
+
+
+          </form>
+         
+          <div class="post-upd"><small> applieddate : &nbsp; {{ gautam.appliedon }}</small></div>
+      </div>
+    {%endfor%}
+ 
+{%else%}
+  <div class="loadMore" id="loadCompleteDiv">
+      <span class="loadMoreButton" >There are No students.</span>
+      <span class="loadComplete" title="No Posts Available">Looks Like There is a Problem !! Try Reloading the Page to Load Posts</span>
+  </div>
+{%endif%}
+
+    
+    </div>
+
+

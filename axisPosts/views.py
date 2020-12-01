@@ -6,14 +6,31 @@ from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
 #from django.template import loader
 from .forms import uploadPostForm,applyForm,bookingForm
-from .models import Post,postReactions,postComments,commentReactions
+from .models import Post,postReactions,postComments,commentReactions,apply,booking
 from axisUsers.models import User
+
 
 def searchPost(request):
     if request.method == "GET":
         searchQuery=request.GET.get('searchQuery')
         data = Post.objects.filter(postTitle__icontains=searchQuery)
         return render(request,"axisPosts/search.html", {'data': data})
+
+def searchstudent(request):
+    print("gautam")
+    if request.method == "GET":
+        searchQuery=request.GET.get('searchQuery')
+        print(searchQuery)
+        studentinfo = apply.objects.filter(firstName__icontains=searchQuery)
+        print(stidentinfo.firstName)
+        return render(request,"axisPosts/searchstudent.html", {'studentinfo': studentinfo})
+
+def searchclass(request):
+    if request.method == "GET":
+        searchQuery=request.GET.get('searchQuery')
+        studentinfo = booking.objects.filter(selectclass__icontains=searchQuery)
+        return render(request,"axisPosts/searchclass.html", {'classinfo': classinfo})
+
 
 def bookingsubmit(request):
     if request.method == "POST":
