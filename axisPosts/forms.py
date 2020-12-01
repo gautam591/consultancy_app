@@ -76,7 +76,7 @@ class  applyForm(forms.ModelForm):
 YEARS= [x for x in range(1940,2021)]
 class bookingForm(forms.ModelForm):
 
-    firstName = forms.CharField(label='firstname', required=True,
+    firstname = forms.CharField(label='firstname', required=True,
                              help_text='yourname', 
                              widget=forms.TextInput(attrs={'placeholder':'fname','class':'firstname'}))
     lastName = forms.CharField(label='lastname', required=True ,
@@ -116,6 +116,6 @@ class bookingForm(forms.ModelForm):
 
     class Meta: 
         model = booking
-        fields = ["firstName","lastName","email","mobile","gender","startdate","selectclass","shift","payment","recipt"]
+        fields = ["firstname","lastName","email","mobile","gender","startdate","selectclass","shift","payment","recipt"]
 
 
