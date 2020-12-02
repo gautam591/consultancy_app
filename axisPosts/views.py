@@ -16,20 +16,7 @@ def searchPost(request):
         data = Post.objects.filter(postTitle__icontains=searchQuery)
         return render(request,"axisPosts/search.html", {'data': data})
 
-def searchstudent(request):
-    print("gautam")
-    if request.method == "GET":
-        searchQuery=request.GET.get('searchQuery')
-        print(searchQuery)
-        studentinfo = apply.objects.filter(firstName__icontains=searchQuery)
-        print(stidentinfo.firstName)
-        return render(request,"axisPosts/searchstudent.html", {'studentinfo': studentinfo})
 
-def searchclass(request):
-    if request.method == "GET":
-        searchQuery=request.GET.get('searchQuery')
-        studentinfo = booking.objects.filter(selectclass__icontains=searchQuery)
-        return render(request,"axisPosts/searchclass.html", {'classinfo': classinfo})
 
 
 def bookingsubmit(request):

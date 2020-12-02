@@ -36,7 +36,7 @@
         </button>
         <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
           <ul class="nav navbar-nav ml-auto">
-            <form class="form-inline search-form"  action="{% url 'axisPosts:searchstudent' %}" method="GET" role="form" onSubmit="return false;" >
+            <form class="form-inline search-form"  action="" method="GET" role="form" onSubmit="return false;" >
               {% csrf_token %}
               <div class="form-group has-success has-feedback">
                 <input type="text" class="form-control searchQueryField"  id="search_query_input" placeholder="Search" required>
@@ -51,7 +51,7 @@
 
     <div class='headContent'>
         <center style="padding-top:5em;padding-bottom:0em;">
-           <h1> Welcome to Project Axis</h1>
+           <h1> Welcome capstone design project</h1>
            <h3>
              <span style="font-size:28px;">
                {% if user.is_authenticated %}

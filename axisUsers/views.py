@@ -10,8 +10,7 @@ from .forms import RegisterUser,LoginUser,userProfile
 from .models import User,userAwards
 from axisPosts.models import apply,booking
 from axisCore.models import seminar
-
-
+from axisPosts.models import apply,booking
 
 def studentinformation(request):
     data = apply.objects.all()
@@ -25,6 +24,22 @@ def classinformation(request):
     context={'data':data}
     #return HttpResponse(template.render(context,request))
     return render(request, 'axisUsers/classinformation.html', context)
+
+def searchstudentinfo(request):
+    
+    if request.method == "GET":
+        searchQuery=request.GET.get('searchQuery')
+        print(searchQuery)
+        studentinfo = apply.objects.filter(firstName__icontains=searchQuery)
+        print(stidentinfo.firstName)
+        return render(request,"axisUsers/searchstudent.html", {'studentinfo': studentinfo})
+
+def searchclassinfo(request):
+    if request.method == "GET":
+        searchQuery=request.GET.get('searchQuery')
+        classinfo = booking.objects.filter(selectclass__icontains=searchQuery)
+        return render(request,"axisUsers/searchclass.html", {'classinfo': classinfo})
+
 
 def seminarinformation(request):
     #template = loader.get_template('axisCore/base.html')
