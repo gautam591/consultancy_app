@@ -12,7 +12,7 @@ class Post(models.Model):
     content = models.TextField()
     postImage = models.ImageField(upload_to="images/",null=True, blank=True)
     country= models.CharField(max_length=45) #Post Category:Regular/Complaint/Concern/Movement/Awareness
-    updatedOn = models.DateTimeField(auto_now=True)
+    
     
     class Meta:
         ordering = ['-postTitle']
@@ -86,7 +86,7 @@ class apply(models.Model):
     qualifications = models.CharField(max_length=30,choices=qualification)
     subject = models.CharField(max_length=20,choices=subject)
     applypopularity = models.IntegerField(default=0)
-    appliedon = models.DateTimeField(auto_now=True)
+    
     class Meta:
         ordering = ['-applypopularity']
     def __str__(self):
