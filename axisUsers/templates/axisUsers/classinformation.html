@@ -192,6 +192,17 @@
    
     <a href="https://github.com/gautam591"  target="_blank">GitHub : Gautam</a></p>
    </footer>
-  
+   <script>
+    function getBaseURLs(urlTO) 
+     {
+         var URLs = { 
+             
+             searchURL : "{% url 'axisUsers:searchclassinfo' %}",
+           
+             
+         };
+         return URLs[urlTO];
+     }  
+    </script>
   </body>
 </html>

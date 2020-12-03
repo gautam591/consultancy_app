@@ -26,12 +26,9 @@ def classinformation(request):
     return render(request, 'axisUsers/classinformation.html', context)
 
 def searchstudentinfo(request):
-    
     if request.method == "GET":
         searchQuery=request.GET.get('searchQuery')
-        print(searchQuery)
-        studentinfo = apply.objects.filter(firstName__icontains=searchQuery)
-        print(stidentinfo.firstName)
+        studentinfo = apply.objects.filter(subject__icontains=searchQuery)
         return render(request,"axisUsers/searchstudent.html", {'studentinfo': studentinfo})
 
 def searchclassinfo(request):

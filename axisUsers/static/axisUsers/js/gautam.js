@@ -10,7 +10,7 @@ $(document).ready(function(){
         //console.log("clicked : ",fd)
           $.ajax({
               type:'GET',
-              url:getBaseURLs('searchURL'),
+              url:getBaseURLs('searchstudentURL'),
               data: {'searchQuery':search_query},
               success:function(response){
                     $(".overlapContentPage").append(response);                
@@ -33,5 +33,6 @@ function searchClicker(){
           }
       }
   });
+
 
   
