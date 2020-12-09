@@ -10,49 +10,50 @@
     {% if classinfo %}
         {% for gautam in classinfo %}  
 
-      <div class='postFeedCard'>
-          <div class="postFeedTitle" style="font-size: 20px;color: aliceblue; color: red;">
-              Name: &nbsp; &nbsp;{{gautam.firstname}}  {{gautam.lastName}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    Class:&nbsp;{{gautam.selectclass}}
-          </div>
-          
-     
-           <div class="postFeedTitle">
-            Gender: &nbsp; &nbsp;{{gautam.gender}} &nbsp; &nbsp;    Mobile: &nbsp;{{gautam.mobile}}
-           </div>
-
-           
-              <div class="postFeedTitle">
-                 Estimated start date: &nbsp; {{gautam.startdate}}    
-              </div>
-      
-           <div class="postFeedTitle">
-              Email Id: &nbsp;{{gautam.email}}    
-           </div>
-
-     
-           
-      
-           <div class="postFeedTitle">
-               shift: &nbsp; {{gautam.shift}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
-          </div>
-      
-          <div class="postFeedTitle">
-              Payment:  &nbsp;{{gautam.payment}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
-          </div>
-         
-          <div class="postImageDiv">
-            <label  class="postFeedTitle">Recipt:&nbsp;</label>
-            {% if gautam.recipt %}
-                <img src="{{gautam.recipt.url}}" alt="Post Image" id="postImage-{{post.id}}" height="250" width="250" style="max-height:20em;object-fit:cover;">
-            {% endif %}
+        <div class='postFeedCard'>
+            <div class="postFeedTitle" style="font-size: 20px;color: aliceblue;">
+              <i class="fa fa-user-circle-o" style="color:red"></i>  Name: &nbsp; &nbsp;{{gautam.firstname}}  {{gautam.lastName}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label style="color: red;"> <i class="fa fa-book" style="color:red"></i>  Class:&nbsp;{{gautam.selectclass}}</label>
             </div>
-         
+            
+       
+             <div class="postFeedTitle">
+              <i class="fa fa-child" style="color:red"></i> Gender: &nbsp; &nbsp;{{gautam.gender}} &nbsp; &nbsp;   <i class="fa fa-phone-square" style="color:red"></i> Mobile: &nbsp;{{gautam.mobile}}
+             </div>
+
+             
+                <div class="postFeedTitle">
+                  <i class="fa fa-calendar" style="color:red"></i>  Estimated start date: &nbsp; {{gautam.startdate}}    
+                </div>
+        
+             <div class="postFeedTitle">
+              <i class="fa fa-envelope-o " style="color:red"></i>  Email Id: &nbsp;{{gautam.email}}    
+             </div>
+
+       
+             
+        
+             <div class="postFeedTitle">
+              <i class="fa fa-clock-o" style="color:red"></i>  shift: &nbsp; {{gautam.shift}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
+            </div>
+        
+            <div class="postFeedTitle">
+              <i class="fa fa-credit-card-alt" style="color:red"></i>  Payment:  &nbsp;{{gautam.payment}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
+            </div>
+           
+            <div class="postImageDiv">
+              <i class="fa fa-registered" style="color:red"></i><label  class="postFeedTitle">Recipt:&nbsp;</label>
+              {% if gautam.recipt %}
+                  <img src="{{gautam.recipt.url}}" alt="Post Image" id="postImage-{{post.id}}" height="250" width="250" style="max-height:20em;object-fit:cover;">
+              {% endif %}
+              </div>
+           
 
 
-          </form>
-         
-          <div class="post-upd"><small> applieddate : &nbsp; {{ gautam.appliedon }}</small></div>
-      </div>
+            </form>
+           
+            <div class="post-upd"><small> applieddate : &nbsp; {{ gautam.appliedon }}</small></div>
+        </div>
+
     {%endfor%}
  
 {%else%}

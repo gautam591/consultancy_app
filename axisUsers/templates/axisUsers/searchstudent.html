@@ -2,6 +2,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'axisPosts/css/postFeed.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'axisPosts/css/themes/darkMode.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 {% block javascript %}
 
@@ -10,46 +11,46 @@
   
         {% if studentinfo %}
               {% for gautam in studentinfo %}  
-    
-                <div class='postFeedCard'>
-                    <div class="postFeedTitle" style="font-size: 20px;color: aliceblue;">
-                        Name: &nbsp; &nbsp;{{gautam.firstName}}  {{gautam.lastName}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    University:{{gautam.university}}
-                    </div>
-                    
-               
-                     <div class="postFeedTitle">
-                      Gender: &nbsp; &nbsp;{{gautam.gender}} &nbsp; &nbsp;    Mobile: &nbsp;{{gautam.mobile}}
-                     </div>
-    
-                     
-                        <div class="postFeedTitle">
-                           Date of Birth: &nbsp; {{gautam.dob}}    
-                        </div>
-                
-                     <div class="postFeedTitle">
-                        Email Id: &nbsp;{{gautam.email}}    
-                     </div>
-    
-               
-                     <div class="postFeedTitle">
-                         Address: &nbsp;{{gautam.address}}    
-                     </div>
-                
-                     <div class="postFeedTitle">
-                         Qualification: &nbsp; {{gautam.qualifications}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
-                    </div>
-                
-                    <div class="postFeedTitle" style="color: red;">
-                        Applied for:  &nbsp;{{gautam.subject}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
-                    </div>
-               
-                   
-    
-       
-                    </form>
-                   
-                    <div class="post-upd"><small> applieddate : &nbsp; {{ gautam.appliedon }}</small></div>
+              <div class='postFeedCard'>
+                <div class="postFeedTitle" style="font-size: 20px;color: aliceblue;">
+                  <i class="fa fa-user-circle-o" style="color:red"></i> Name: &nbsp; &nbsp;{{gautam.firstName}}  {{gautam.lastName}}     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <i class="fa fa-building-o" style="color:red"></i> University:{{gautam.university}}
                 </div>
+                
+           
+                 <div class="postFeedTitle">
+                  <i class="fa fa-child" style="color:red"></i>  Gender: &nbsp; &nbsp;{{gautam.gender}} &nbsp; &nbsp;   <i class="fa fa-phone-square" style="color:red"></i> Mobile: &nbsp;{{gautam.mobile}}
+                 </div>
+
+                 
+                    <div class="postFeedTitle">
+                     
+<i class="fa fa-calendar" style="color:red"></i>   Date of Birth: &nbsp; {{gautam.dob}}    
+                    </div>
+            
+                 <div class="postFeedTitle">
+                  <i class="fa fa-envelope-o " style="color:red"></i>   Email Id: &nbsp;{{gautam.email}}    
+                 </div>
+
+           
+                 <div class="postFeedTitle">
+                  <i class="fa fa-address-book" style="color:red"></i>  Address: &nbsp;{{gautam.address}}    
+                 </div>
+            
+                 <div class="postFeedTitle">
+                  <i class="fa fa-graduation-cap" style="color:red"></i>  Qualification: &nbsp; {{gautam.qualifications}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
+                </div>
+            
+                <div class="postFeedTitle" style="color: red;">
+                  <i class="fa fa-check-square" style="color:red"></i>  Applied for:  &nbsp;{{gautam.subject}}    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
+                </div>
+           
+               
+
+   
+                </form>
+               
+                <div class="post-upd"><small> applieddate : &nbsp; {{ gautam.appliedon }}</small></div>
+            </div>
               {%endfor%}
            
         {%else%}

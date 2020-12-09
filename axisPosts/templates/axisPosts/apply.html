@@ -48,14 +48,14 @@ input[type=submit], input[type=reset]{
 <table align="center" cellpadding = "10">
 <!--------------------- First Name ------------------------------------------>
 <tr>
-  <td>First Name</td>
+  <td><i class="fa fa-user-o"></i>First Name</td>
   <td>{{applyForm.firstName}}
     <span class="error">{{applyForm.firstname.errors}}</span>
   </td>
   </tr>
 <!------------------------ Last Name --------------------------------------->
 <tr>
-  <td>Last Name</td>
+  <td><i class="fa fa-user-o"></i>Last Name</td>
   <td>{{applyForm.lastName}}
     <span class="error">{{applyForm.lastName.errors}}</span>
   </td>
@@ -75,7 +75,7 @@ input[type=submit], input[type=reset]{
   </tr>
 <!---------------------- Gender ------------------------------------->
 <tr>
-  <td>Mobile Number</td>
+  <td> <i class="fa fa-phone"></i>Mobile Number</td>
   <td>
     {{applyForm.mobile}}
     <span class="error">{{applyForm.mobile.errors}}</span>
@@ -83,13 +83,14 @@ input[type=submit], input[type=reset]{
   </tr>
 <!--------------------------Date Of Birth----------------------------------->
 <tr>
-  <td>Gender</td>
+  <td><i class="fa fa-child"></i>Gender</td>
   <td>
     {{applyForm.gender}}
     <span class="error">{{applyForm.gender.errors}}</span>
   </td>
   </tr>
   <tr>
+    <i class="fa fa-calendar"></i>
     <td>Date of Birth</td>
     <td>
       {{applyForm.dob}}
@@ -98,7 +99,7 @@ input[type=submit], input[type=reset]{
     </tr>
 <!-----------------------Qualification---------------------------------------->
 <tr>
-  <td>Address</td>
+  <td><i class="fa fa-address-card"></i>Address</td>
   <td>
   {{applyForm.address}}
 <span class="error">{{applyForm.address.errors}}</span>
@@ -114,7 +115,7 @@ input[type=submit], input[type=reset]{
     
 
     <tr>
-      [<td>Qualification <br /><br /><br /></td>
+      [<td><i class="fa fa-graduation-cap"></i>Qualification <br /><br /><br /></td>
       <td>
       <br/>
       {{applyForm.qualifications}}
